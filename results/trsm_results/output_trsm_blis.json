@@ -1,0 +1,12 @@
+{"data":[
+{"name":"data_trsm_blis","m":2000, "n":2000, "gflops":  54.48},
+{"name":"data_trsm_blis","m":1800, "n":1800, "gflops":  54.76},
+{"name":"data_trsm_blis","m":1600, "n":1600, "gflops":  54.55},
+{"name":"data_trsm_blis","m":1400, "n":1400, "gflops":  54.17},
+{"name":"data_trsm_blis","m":1200, "n":1200, "gflops":  54.19},
+{"name":"data_trsm_blis","m":1000, "n":1000, "gflops":  54.07},
+{"name":"data_trsm_blis","m": 800, "n": 800, "gflops":  53.90},
+{"name":"data_trsm_blis","m": 600, "n": 600, "gflops":  55.19},
+{"name":"data_trsm_blis","m": 400, "n": 400, "gflops":  52.83},
+{"name":"data_trsm_blis","m": 200, "n": 200, "gflops":  45.82}
+]}

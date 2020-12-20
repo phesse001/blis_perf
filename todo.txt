@@ -1,0 +1,3 @@
+-make arc in meta for lib.blis soft arc-agnostic(just works for zen2 atm)
+-find all flags required for it to work with program module(might have to use pre-processing script to extract dif flags for dif OS)
+-look into adding autotuning(could be a solution for above)

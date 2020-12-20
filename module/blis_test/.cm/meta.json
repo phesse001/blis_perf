@@ -1,0 +1,8 @@
+{
+  "actions": {
+    "test": {
+      "desc": "compile and run tests"
+    }
+  },
+  "desc": "module to run blis tests within ck"
+}

@@ -1,0 +1,12 @@
+{"data":[
+{"name":"data_herk_blis","m":2000, "k":2000, "gflops":  54.18},
+{"name":"data_herk_blis","m":1800, "k":1800, "gflops":  53.35},
+{"name":"data_herk_blis","m":1600, "k":1600, "gflops":  54.20},
+{"name":"data_herk_blis","m":1400, "k":1400, "gflops":  53.95},
+{"name":"data_herk_blis","m":1200, "k":1200, "gflops":  53.45},
+{"name":"data_herk_blis","m":1000, "k":1000, "gflops":  51.38},
+{"name":"data_herk_blis","m": 800, "k": 800, "gflops":  52.06},
+{"name":"data_herk_blis","m": 600, "k": 600, "gflops":  54.14},
+{"name":"data_herk_blis","m": 400, "k": 400, "gflops":  52.95},
+{"name":"data_herk_blis","m": 200, "k": 200, "gflops":  47.28}
+]}

@@ -1,0 +1,13 @@
+{
+  "data_uoa": "ck-blis",
+  "data_uid": "acef144faab5f086",
+  "data_alias": "ck-blis",
+  "data_name": "ck-blis",
+  "dict": {
+    "repo_deps": [
+      {
+        "repo_uoa": "ck-autotuning"
+      }
+    ]
+  }
+}

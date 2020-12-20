@@ -1,0 +1,12 @@
+{"data":[
+{"name":"data_hemm_blis","m":2000, "n":2000, "gflops":  57.67},
+{"name":"data_hemm_blis","m":1800, "n":1800, "gflops":  56.55},
+{"name":"data_hemm_blis","m":1600, "n":1600, "gflops":  57.00},
+{"name":"data_hemm_blis","m":1400, "n":1400, "gflops":  56.69},
+{"name":"data_hemm_blis","m":1200, "n":1200, "gflops":  56.91},
+{"name":"data_hemm_blis","m":1000, "n":1000, "gflops":  56.78},
+{"name":"data_hemm_blis","m": 800, "n": 800, "gflops":  56.30},
+{"name":"data_hemm_blis","m": 600, "n": 600, "gflops":  57.77},
+{"name":"data_hemm_blis","m": 400, "n": 400, "gflops":  57.44},
+{"name":"data_hemm_blis","m": 200, "n": 200, "gflops":  54.74}
+]}
