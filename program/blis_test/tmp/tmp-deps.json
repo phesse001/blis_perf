@@ -6,7 +6,8 @@
     "tags": "compiler,lang-cpp",
     "detected_ver": "9.3.0",
     "choices": [
-      "9141f6a044e438c2"
+      "9141f6a044e438c2",
+      "e865841ff91c1b42"
     ],
     "cus": {
       "add_only_with_version": "yes",
@@ -201,7 +202,7 @@
     },
     "ver": "9.3.0",
     "uoa": "9141f6a044e438c2",
-    "num_entries": 1,
+    "num_entries": 2,
     "build_dir_name": "gcc",
     "bat": ". /home/phesse/CK/local/env/9141f6a044e438c2/env.sh\n"
   },
@@ -1087,50 +1088,61 @@
     "sort": 80,
     "tags": "lib,blis",
     "choices": [
-      "d42b6cae546dfcbc"
+      "5906663bbbc49cfb"
     ],
     "cus": {
-      "arc": "zen",
+      "arc": "zen2",
       "check_that_exists": "yes",
       "ck_version": 10,
+      "dynamic_lib": "libblis.so",
       "env_prefix": "CK_ENV_LIB_BLIS",
       "file_root_name": "libblis",
       "full_path": "/home/phesse/blis/lib/zen2/libblis.so",
       "include_file": "blis.h",
+      "include_name": "blis.h",
       "limit_recursion_dir_search": {
         "linux": 4,
         "win": 4
       },
+      "path_include": "/home/phesse/blis/include/zen2",
       "path_lib": "/home/phesse/blis/lib/zen2",
       "skip_path": "yes",
       "soft_file": {
         "linux": "libblis.so",
         "win": "libblis.dll"
-      }
+      },
+      "static_lib": "libblis.a"
     },
     "dict": {
       "customize": {
-        "arc": "zen",
+        "arc": "zen2",
         "check_that_exists": "yes",
         "ck_version": 10,
+        "dynamic_lib": "libblis.so",
         "env_prefix": "CK_ENV_LIB_BLIS",
         "file_root_name": "libblis",
         "full_path": "/home/phesse/blis/lib/zen2/libblis.so",
         "include_file": "blis.h",
+        "include_name": "blis.h",
         "limit_recursion_dir_search": {
           "linux": 4,
           "win": 4
         },
+        "path_include": "/home/phesse/blis/include/zen2",
         "path_lib": "/home/phesse/blis/lib/zen2",
         "skip_path": "yes",
         "soft_file": {
           "linux": "libblis.so",
           "win": "libblis.dll"
-        }
+        },
+        "static_lib": "libblis.a"
       },
       "deps": {},
       "env": {
-        "CK_ENV_LIB_BLIS": "/home/phesse/blis/lib"
+        "CK_ENV_LIB_BLIS": "/home/phesse/blis",
+        "CK_ENV_LIB_BLIS_DYNAMIC_NAME": "libblis.so",
+        "CK_ENV_LIB_BLIS_INCLUDE_NAME": "blis.h",
+        "CK_ENV_LIB_BLIS_STATIC_NAME": "libblis.a"
       },
       "env_script": "env.sh",
       "install_location": "",
@@ -1141,7 +1153,7 @@
         "version": "",
         "version_split": []
       },
-      "soft_uoa": "4302832a40bf05d8",
+      "soft_uoa": "2141709854a44468",
       "tags": [
         "64bits",
         "blis",
@@ -1152,8 +1164,8 @@
       "data_name": "BLIS library",
       "soft_alias": "lib.blis"
     },
-    "uoa": "d42b6cae546dfcbc",
+    "uoa": "5906663bbbc49cfb",
     "num_entries": 1,
-    "bat": ". /home/phesse/CK/local/env/d42b6cae546dfcbc/env.sh\n"
+    "bat": ". /home/phesse/CK/local/env/5906663bbbc49cfb/env.sh\n"
   }
 }

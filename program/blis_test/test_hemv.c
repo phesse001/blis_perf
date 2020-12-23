@@ -90,15 +90,7 @@ int main( int argc, char** argv )
 
 	// Begin with initializing the last entry to zero so that
 	// matlab allocates space for the entire array once up-front.
-	for ( p = p_begin; p + p_inc <= p_end; p += p_inc ) ;
-#ifdef BLIS
-	printf( "data_hemv_blis" );
-#else
-	printf( "data_hemv_%s", BLAS );
-#endif
-	printf( "( %2lu, 1:2 ) = [ %4lu %7.2f ];\n",
-	        ( unsigned long )(p - p_begin)/p_inc + 1,
-	        ( unsigned long )0, 0.0 );
+    printf("{\"data\":[\n");
 
 	//for ( p = p_begin; p <= p_end; p += p_inc )
 	for ( p = p_end; p_begin <= p; p -= p_inc )
@@ -189,14 +181,22 @@ int main( int argc, char** argv )
 
 		gflops = ( 2.0 * m * m ) / ( dtime_save * 1.0e9 );
 
+
 #ifdef BLIS
-		printf( "data_hemv_blis" );
+		printf( "{\"name\":\"data_hemv_blis\"," );
 #else
-		printf( "data_hemv_%s", BLAS );
+		printf( "{\"name\":\"data_hemv_%s\",", BLAS );
 #endif
-		printf( "( %2lu, 1:2 ) = [ %4lu %7.2f ];\n",
-		        ( unsigned long )(p - p_begin)/p_inc + 1,
+		if(p_begin == p)
+		{
+		printf( "\"m\":%4lu, \"gflops\":%7.2f}\n",
 		        ( unsigned long )m, gflops );
+		}
+		else
+		{
+		printf( "\"m\":%4lu, \"gflops\":%7.2f},\n",
+		        ( unsigned long )m, gflops );
+		}
 
 		bli_obj_free( &alpha );
 		bli_obj_free( &beta );
@@ -206,7 +206,7 @@ int main( int argc, char** argv )
 		bli_obj_free( &y );
 		bli_obj_free( &y_save );
 	}
-
+    printf("]}");
 	//bli_finalize();
 
 	return 0;

@@ -1,0 +1,14 @@
+gemm ck:
+
+gcc-9 -c    -I../ -DCK_HOST_OS_NAME2_LINUX=1 -DCK_HOST_OS_NAME_LINUX=1 -DCK_TARGET_OS_NAME2_LINUX=1 -DCK_TARGET_OS_NAME_LINUX=1 -I/home/phesse/CK-TOOLS/lib-openblas-0.3.3-gcc-9.3.0-linux-64/install/include -I/home/phesse/blis/include/zen2  ../test_gemm.c  -o test_gemm.o
+gcc-9     test_gemm.o  -o a.out    -L/home/phesse/CK-TOOLS/lib-openblas-0.3.3-gcc-9.3.0-linux-64/install/lib -lopenblas  -L/home/phesse/blis/lib/zen2 -lblis
+/bin/ld: test_gemm.o: undefined reference to symbol 'round@@GLIBC_2.2.5'
+/bin/ld: /lib/x86_64-linux-gnu/libm.so.6: error adding symbols: DSO missing from command line
+collect2: error: ld returned 1 exit status
+
+
+gemm local:
+
+gcc -O2 -fomit-frame-pointer -Wall -Wno-unused-function -Wfatal-errors -fPIC -std=c99 -D_POSIX_C_SOURCE=200112L -I../include/zen2 -DBLIS_VERSION_STRING=\"0.8.0-9\" -I. -DBLIS -c test_gemm.c -o test_gemm_blis.o
+gcc test_gemm_blis.o                             ../lib/zen2/libblis.a  -lm -lpthread -lrt -o test_gemm_blis.x
+

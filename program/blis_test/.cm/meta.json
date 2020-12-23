@@ -46,6 +46,7 @@
   },
   "compiler_env": "CK_CC",
   "data_name": "test",
+  "extra_ld_vars": "$<<CK_EXTRA_LIB_M>>$",
   "main_language": "c",
   "process_in_tmp": "yes",
   "program": "yes",

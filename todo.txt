@@ -1,3 +1,6 @@
 -make arc in meta for lib.blis soft arc-agnostic(just works for zen2 atm)
 -find all flags required for it to work with program module(might have to use pre-processing script to extract dif flags for dif OS)
+	*add DBLIS and DBLIS_VERSION_STRING so that BLAS is defined in c files
+	*find how to compile for all three libs
+
 -look into adding autotuning(could be a solution for above)
