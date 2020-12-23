@@ -7,36 +7,6 @@
       "sort": 10,
       "tags": "compiler,lang-cpp"
     },
-    "lib-openblas": {
-       "local": "yes",
-       "name": "OpenBlas library",
-       "sort": 30,
-       "tags": "openblas"
-    },
-    "lib-mkl-intel-lp64": {
-       "local": "yes",
-       "name": "MKL lp64 library",
-       "sort": 40,
-       "tags": "lib,mkl,intel,lp64"
-    },
-    "lib-mkl-core": {
-       "local": "yes",
-       "name": "MKL Core library",
-       "sort": 50,
-       "tags": "lib,mkl,core"
-    },
-    "lib-mkl-sequential": {
-       "local": "yes",
-       "name": "MKL Sequential library",
-       "sort": 60,
-       "tags": "lib,mkl,sequential"
-    },
-    "lib-mkl-pthread": {
-       "local": "yes",
-       "name": "MKL Pthread library",
-       "sort": 70,
-       "tags": "lib,pthread"
-    },
     "lib-blis": {
        "local": "yes",
        "name": "Blis library",
@@ -45,7 +15,8 @@
     }
   },
   "compiler_env": "CK_CC",
-  "data_name": "test",
+  "build_compiler_vars":{"POSIX_C_SOURCE":"200112L","BLIS":"", "BLIS_VERSION_STRING":"0.8.0-9"},
+  "data_name": "blis_test",
   "extra_ld_vars": "$<<CK_EXTRA_LIB_M>>$",
   "main_language": "c",
   "process_in_tmp": "yes",
@@ -68,9 +39,7 @@
   },
   "run_vars": {
   },
-  "source_files": [
-    "test_gemm.c"
-  ],
+  "source_files":["test_gemm.c"],
   "tags": [
     "program",
     "blis",
@@ -78,5 +47,5 @@
     "openblas",
     "test"
   ],
-  "target_file": "a"
+  "target_file": "test"
 }
