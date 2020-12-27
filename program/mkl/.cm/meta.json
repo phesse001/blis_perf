@@ -25,12 +25,6 @@
        "sort": 60,
        "tags": "lib,mkl,sequential"
     },
-    "lib-mkl-pthread": {
-       "local": "yes",
-       "name": "MKL Pthread library",
-       "sort": 70,
-       "tags": "lib,pthread"
-    },
     "lib-blis": {
        "local": "yes",
        "name": "Blis library",

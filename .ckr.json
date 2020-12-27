@@ -4,6 +4,9 @@
   "data_alias": "ck-blis",
   "data_name": "ck-blis",
   "dict": {
+    "shared": "git",
+    "sync": "yes",
+    "url": "https://github.com/phesse001/ck-blis",
     "repo_deps": [
       {
         "repo_uoa": "ck-autotuning"

@@ -38,6 +38,10 @@
 #include <unistd.h>
 #endif
 #include "blis.h"
+#ifdef XOPENME
+#include <xopenme.h>
+#endif
+
 
 
 //#define PRINT
@@ -65,6 +69,10 @@ int main( int argc, char** argv )
 	//bli_init();
 
 	//bli_error_checking_level_set( BLIS_NO_ERROR_CHECKING );
+
+	#ifdef XOPENME
+      xopenme_init(1,3);
+    #endif
 
 	n_repeats = 3;
 
@@ -154,11 +162,19 @@ int main( int argc, char** argv )
 
 #ifdef BLIS
 
+            #ifdef XOPENME
+              xopenme_clock_start(0);
+            #endif
+
 			bli_gemm( &alpha,
 			          &a,
 			          &b,
 			          &beta,
 			          &c );
+
+			#ifdef XOPENME
+              xopenme_clock_end(0);
+            #endif
 
 #else
 
@@ -306,6 +322,11 @@ int main( int argc, char** argv )
 		bli_obj_free( &c_save );
 	}
     printf("]}");
+
+    #ifdef XOPENME
+      xopenme_dump_state();
+      xopenme_finish();
+    #endif
 	//bli_finalize();
 
 	return 0;

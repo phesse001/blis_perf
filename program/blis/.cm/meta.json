@@ -12,10 +12,16 @@
        "name": "Blis library",
        "sort": 80,
        "tags": "lib,blis"
+    },
+      "xopenme": {
+      "local": "yes",
+      "name": "xOpenME library",
+      "sort": 20,
+      "tags": "lib,xopenme"
     }
   },
   "compiler_env": "CK_CC",
-  "build_compiler_vars":{"POSIX_C_SOURCE":"200112L","BLIS":"", "BLIS_VERSION_STRING":"0.8.0-9"},
+  "build_compiler_vars":{"POSIX_C_SOURCE":"200112L","BLIS":"", 				  "BLIS_VERSION_STRING":"0.8.0-9", "XOPENME": ""},
   "data_name": "blis_test",
   "extra_ld_vars": "$<<CK_EXTRA_LIB_M>>$",
   "main_language": "c",
@@ -25,6 +31,7 @@
     "default": {
       "ignore_return_code": "no",
       "run_time": {
+        "fine_grain_timer_file": "tmp-ck-timer.json",
         "run_cmd_main": "$#BIN_FILE#$ ",
         "run_cmd_out1": "tmp-output1.tmp",
         "run_cmd_out2": "tmp-output2.tmp",
