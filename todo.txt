@@ -1,4 +1,0 @@
--figure out how to add timing for experiment
-	*look at /home/phesse/ck/ck-autotuning/program/template-hello-world-c-openme
-	
--look into adding autotuning

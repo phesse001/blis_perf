@@ -1,6 +1,11 @@
 {
   "backup_data_uid": "0de44f7ebbffeda8",
-    "compile_deps": {
+  "compile_cmds": {
+    "default": {
+      "cmd": "bash ../compileme$#script_ext#$"
+    }
+  },
+  "compile_deps": {
     "compiler": {
       "local": "yes",
       "name": "C++ compiler",
@@ -31,22 +36,28 @@
     "default": {
       "ignore_return_code": "no",
       "run_time": {
-        "fine_grain_timer_file": "tmp-ck-timer.json",
-        "run_cmd_main": "$#BIN_FILE#$ ",
-        "run_cmd_out1": "tmp-output1.tmp",
-        "run_cmd_out2": "tmp-output2.tmp",
-        "run_correctness_output_files": [
-          "tmp-output2.tmp"
-        ],
-        "run_output_files": [
-          "tmp-ck-timer.json"
-        ]
+        "run_cmd_main": "..$#dir_sep#$runme$#script_ext#$"
       }
     }
   },
+  "skip_objdump":"yes",
   "run_vars": {
   },
-  "source_files":["test_gemm.c"],
+  "source_files": [
+    "test_gemm.c",
+    "test_gemv.c",
+    "test_ger.c",
+    "test_hemm.c",
+    "test_hemv.c",
+    "test_her.c",
+    "test_her2.c",
+    "test_her2k.c",
+    "test_herk.c",
+    "test_trmm.c",
+    "test_trmv.c",
+    "test_trsm.c",
+    "test_trsv.c"
+  ],
   "tags": [
     "program",
     "blis",
@@ -54,5 +65,5 @@
     "openblas",
     "test"
   ],
-  "target_file": "test"
+  "use_compile_script": "yes"
 }
