@@ -96,7 +96,7 @@ def setup(i):
     print("lib dir is " + lib_parent_dir)
     #if cloned from github and configured, there will be an intermediate directory with the name of the arc
     #if library was installed alone to be linked against the library resides in */blis/lib rather than */blis/lib/arc
-    if os.path.basename(lib_parent_dir) != 'lib':
+    if os.path.basename(lib_parent_dir) == 'lib':
       cus['arc_specific'] = 'no'
       cus['arc'] = ''
     else:
