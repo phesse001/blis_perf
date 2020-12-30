@@ -124,6 +124,7 @@ def setup(i):
 
 
     file_extensions     = hosd.get('file_extensions',{})    # not clear whether hosd or tosd should be used in soft detection
+    print(file_extensions)
     file_root_name     = os.path.basename(full_path).split(".")[0]
     cus['path_lib']     = path_lib
     cus['static_lib']   = file_root_name + file_extensions.get('lib','')
@@ -137,7 +138,7 @@ def setup(i):
 
     env_prefix          = cus.get('env_prefix','')
     install_root        = include_path    # or should lib_parent_dir be used instead? Not clear.
-    env[env_prefix]     = install_root
+    env[env_prefix]     = path_lib
 
     path_bin=os.path.join(install_root,'bin')
     if os.path.isdir(path_bin):
