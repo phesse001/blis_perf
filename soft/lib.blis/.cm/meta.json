@@ -4,7 +4,7 @@
     "check_that_exists": "yes",
     "ck_version": 10,
     "env_prefix": "CK_ENV_LIB_BLIS",
-    "file_root_names": "libblis",
+    "file_root_name": "libblis.3",
     "include_file": "blis.h",
     "limit_recursion_dir_search": {
       "linux": 4,
@@ -12,7 +12,7 @@
     },
     "soft_file": {
       "linux": "libblis.so",
-      "win": "libblis.dll"
+      "win": "libblis.3"
     }
   },
   "soft_name": "BLIS library",

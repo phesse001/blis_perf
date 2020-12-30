@@ -96,7 +96,7 @@ def setup(i):
     print("lib dir is " + lib_parent_dir)
     #if cloned from github and configured, there will be an intermediate directory with the name of the arc
     #if library was installed alone to be linked against the library resides in */blis/lib rather than */blis/lib/arc
-    if os.path.basename(lib_parent_dir) != 'lib':
+    if os.path.basename(lib_parent_dir) == 'lib':
       cus['arc_specific'] = 'no'
       cus['arc'] = ''
     else:
@@ -124,9 +124,11 @@ def setup(i):
 
 
     file_extensions     = hosd.get('file_extensions',{})    # not clear whether hosd or tosd should be used in soft detection
+    print(file_extensions)
     file_root_name     = os.path.basename(full_path).split(".")[0]
+    print("file root name " + file_root_name)
     cus['path_lib']     = path_lib
-    cus['static_lib']   = file_root_name + file_extensions.get('lib','')
+    cus['static_lib']   = file_root_name + ".dll.a" #the static lib extension?
     cus['dynamic_lib']  = file_root_name + file_extensions.get('dll','')
     cus['path_include'] = include_path
     cus['include_name'] = include_file_name
@@ -137,7 +139,7 @@ def setup(i):
 
     env_prefix          = cus.get('env_prefix','')
     install_root        = include_path    # or should lib_parent_dir be used instead? Not clear.
-    env[env_prefix]     = install_root
+    env[env_prefix]     = path_lib
 
     path_bin=os.path.join(install_root,'bin')
     if os.path.isdir(path_bin):
