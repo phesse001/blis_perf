@@ -12,11 +12,7 @@
     },
     "soft_file": {
       "linux": "libblis.so",
-<<<<<<< HEAD
-      "win": "libblis.3"
-=======
       "win": "libblis.3.dll"
->>>>>>> b81fc3d7f52e5a6d64b2aa3e6b39fdc8dd96c7bf
     }
   },
   "soft_name": "BLIS library",

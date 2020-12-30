@@ -2,7 +2,8 @@ OPENBLAS:
 
 windows:
 
-
+gcc -c  -DWINDOWS   -I..\ -DBLIS_VERSION_STRING=0.8.0-9 -DCK_HOST_OS_NAME2_WIN=1 -DCK_HOST_OS_NAME_WIN=1 -DCK_TARGET_OS_NAME2_WIN=1 -DCK_TARGET_OS_NAME_WIN=1 -DPOSIX_C_SOURCE=200112L -I"C:\Users\patri\CK-TOOLS\lib-openblas-0.3.3-gcc-8.1.0-compiler.gcc-8.1.0-windows-64\install\include" -I"C:\Program Files\blis\include\blis"  ..\test_gemm.c  -o test_gemm.o
+gcc  -DWINDOWS    test_gemm.o  -o test.exe   "C:\Users\patri\CK-TOOLS\lib-openblas-0.3.3-gcc-8.1.0-compiler.gcc-8.1.0-windows-64\install/lib\libopenblas.dll.a" "C:\Program Files\blis\lib\libblis.dll.a" -lm
 
 linux:
 
