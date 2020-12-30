@@ -87,61 +87,48 @@ def setup(i):
 
     env=i['env']
 
-    # Looking for the parent of the 'lib'/'lib64' dir:
-    #
-    path_lib        = os.path.dirname(full_path)
-    lib_parent_dir  = path_lib
-    found=False
-    while True:
-       if os.path.isdir(os.path.join(lib_parent_dir,'lib')) or os.path.isdir(os.path.join(lib_parent_dir,'lib64')):
-          found=True
-          break
-       up_one_level=os.path.dirname(lib_parent_dir)
-       if up_one_level==lib_parent_dir:
-          break
-       lib_parent_dir=up_one_level
-
-    if not found:
-       return {'return':1, 'error':'can\'t find root dir of the libBLIS installation'}
-
 
     # Looking for the parent of the 'include' dir that contains our include_file:
     #
-    pl0 = os.path.dirname( os.path.realpath(full_path) )
-    print(pl0)
-    pl1 = os.path.dirname( pl0 )
-    print(pl1)
-    pl2 = os.path.dirname( pl1 )
-    pl3 = os.path.dirname( pl2 )
+    lib_parent_dir = os.path.dirname(os.path.realpath(full_path))
+    #get perm path that won't manipulate
+    path_lib = lib_parent_dir 
+    print("lib dir is " + lib_parent_dir)
+    #if cloned from github and configured, there will be an intermediate directory with the name of the arc
+    #if library was installed alone to be linked against the library resides in */blis/lib rather than */blis/lib/arc
+    if os.path.basename(lib_parent_dir) != 'lib':
+      cus['arc_specific'] = 'no'
+      cus['arc'] = ''
+    else:
+      cus['arc_specific'] = 'yes'
+      cus['arc'] = str(os.path.basename(lib_parent_dir))
 
     include_file_name=cus.get('include_file','')
-    if os.path.isfile(os.path.join(pl0,'Headers',arc,include_file_name)):
-        include_parent_dir   = pl0
-        include_sub_dir      = 'Headers/' + "*"
-    elif os.path.isfile(os.path.join(pl1,'include', arc, include_file_name)):
-        include_parent_dir   = pl1
-        include_sub_dir      = 'include/' + "*"
-    elif os.path.isfile(os.path.join(pl2,'include', arc, include_file_name)):
-        include_parent_dir   = pl2
-        include_sub_dir      = 'include/' + "*"
-    elif os.path.isfile(os.path.join(pl3,'include', arc, include_file_name)):
-        include_parent_dir   = pl3
-        include_sub_dir      = 'include/' + "*"
-    elif os.path.isfile(os.path.join(pl3,'include', arc, 'x86_64-linux-gnu',include_file_name)):
-        include_parent_dir   = pl3
-        include_sub_dir      = os.path.join(pl3,'include','x86_64-linux-gnu')
-    elif os.path.isfile(os.path.join(pl3,'include', arc, 'arm-linux-gnueabihf',include_file_name)):
-        include_parent_dir   = pl3
-        include_sub_dir      = os.path.join(pl3,'include/' + arc,'arm-linux-gnueabihf')
-    else:
+
+    found = False
+    while found == False:
+      print(lib_parent_dir)
+      if os.path.isdir(os.path.join(os.path.dirname(lib_parent_dir),"include")):
+        if(cus['arc_specific'] == 'yes'):
+          include_path = os.path.join(os.path.dirname(lib_parent_dir),"include", cus['arc'])
+          found = True
+          break
+        else:
+          include_path = os.path.join(os.path.dirname(lib_parent_dir),"include", 'blis')
+          found = True
+          break
+      #go up a directory
+      lib_parent_dir = os.path.dirname(lib_parent_dir)
+      if os.path.basename(lib_parent_dir) == "":
         return {'return':1, 'error':'can\'t find include file... select installation with include file in \'include\' sub directory'}
 
+
     file_extensions     = hosd.get('file_extensions',{})    # not clear whether hosd or tosd should be used in soft detection
-    file_root_name      = cus['file_root_name']
+    file_root_name     = os.path.basename(full_path).split(".")[0]
     cus['path_lib']     = path_lib
     cus['static_lib']   = file_root_name + file_extensions.get('lib','')
     cus['dynamic_lib']  = file_root_name + file_extensions.get('dll','')
-    cus['path_include'] = os.path.join(include_parent_dir, include_sub_dir)
+    cus['path_include'] = include_path
     cus['include_name'] = include_file_name
 
     r = ck.access({'action': 'lib_path_export_script', 'module_uoa': 'os', 'host_os_dict': hosd, 'lib_path': path_lib})
@@ -149,7 +136,7 @@ def setup(i):
     shell_setup_script_contents = r['script']
 
     env_prefix          = cus.get('env_prefix','')
-    install_root        = include_parent_dir    # or should lib_parent_dir be used instead? Not clear.
+    install_root        = include_path    # or should lib_parent_dir be used instead? Not clear.
     env[env_prefix]     = install_root
 
     path_bin=os.path.join(install_root,'bin')
