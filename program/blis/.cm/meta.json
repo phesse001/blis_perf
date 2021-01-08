@@ -17,12 +17,6 @@
        "name": "Blis library",
        "sort": 80,
        "tags": "lib,blis"
-    },
-      "xopenme": {
-      "local": "yes",
-      "name": "xOpenME library",
-      "sort": 20,
-      "tags": "lib,xopenme"
     }
   },
   "compiler_env": "CK_CC",

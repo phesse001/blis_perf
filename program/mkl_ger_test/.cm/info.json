@@ -1,0 +1,15 @@
+{
+  "backup_data_uid": "abf4684a4aadd69f",
+  "backup_module_uid": "b0ac08fe1d3c2615",
+  "backup_module_uoa": "program",
+  "control": {
+    "engine": "CK",
+    "iso_datetime": "2020-12-30T14:15:25.536518",
+    "version": [
+      "1",
+      "55",
+      "0"
+    ]
+  },
+  "data_name": "mkl_ger_test"
+}

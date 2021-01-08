@@ -1,5 +1,6 @@
 {
   "backup_data_uid": "d59a84593427392a",
+    "data_name": "blis_test",
     "compile_deps": {
     "compiler": {
       "local": "yes",
@@ -7,28 +8,14 @@
       "sort": 10,
       "tags": "compiler,lang-cpp"
     },
-    "lib-mkl-intel-lp64": {
+    "lib-mkl": {
        "local": "yes",
-       "name": "MKL lp64 library",
-       "sort": 40,
-       "tags": "lib,mkl,intel,lp64"
-    },
-    "lib-mkl-core": {
-       "local": "yes",
-       "name": "MKL Core library",
-       "sort": 50,
-       "tags": "lib,mkl,core"
-    },
-    "lib-mkl-sequential": {
-       "local": "yes",
-       "name": "MKL Sequential library",
-       "sort": 60,
-       "tags": "lib,mkl,sequential"
+       "name": "MKL library",
+       "tags": "lib,mkl,intel"
     },
     "lib-blis": {
        "local": "yes",
        "name": "Blis library",
-       "sort": 80,
        "tags": "lib,blis"
     }
   },
@@ -62,10 +49,8 @@
     "test_gemm.c"
   ],
   "tags": [
-    "program",
-    "blis",
+    "gemm",
     "mkl",
-    "openblas",
     "test"
   ],
   "target_file": "test"

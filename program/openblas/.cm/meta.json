@@ -1,5 +1,6 @@
 {
   "backup_data_uid": "4ae6994d60bc0e37",
+    "data_name": "blis_gemm_test",
     "compile_deps": {
     "compiler": {
       "local": "yes",
@@ -22,7 +23,6 @@
   },
   "compiler_env": "CK_CC",
   "build_compiler_vars":{"POSIX_C_SOURCE":"200112L", "BLIS_VERSION_STRING":"0.8.0-9"},
-  "data_name": "blis_test",
   "extra_ld_vars": "$<<CK_EXTRA_LIB_M>>$",
   "main_language": "c",
   "process_in_tmp": "yes",
@@ -51,11 +51,9 @@
     "test_gemm.c"
   ],
   "tags": [
-    "program",
-    "blis",
-    "mkl",
+    "gemm",
     "openblas",
     "test"
   ],
-  "target_file": "test"
+  "target_file": "test_gemm"
 }

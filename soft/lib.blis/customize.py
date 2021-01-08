@@ -78,22 +78,21 @@ def setup(i):
     ck=i['ck_kernel']
     cus=i.get('customize',{})
     full_path=cus.get('full_path','')
+    print(full_path)
 
     hosd=i['host_os_dict']
+    
     tosd=i['target_os_dict']
 
     # Check platform
     tplat=hosd.get('ck_name','')
 
     env=i['env']
-
-
     # Looking for the parent of the 'include' dir that contains our include_file:
     #
     lib_parent_dir = os.path.dirname(os.path.realpath(full_path))
     #get perm path that won't manipulate
     path_lib = lib_parent_dir 
-    print("lib dir is " + lib_parent_dir)
     #if cloned from github and configured, there will be an intermediate directory with the name of the arc
     #if library was installed alone to be linked against the library resides in */blis/lib rather than */blis/lib/arc
     if os.path.basename(lib_parent_dir) == 'lib':
@@ -107,7 +106,6 @@ def setup(i):
 
     found = False
     while found == False:
-      print(lib_parent_dir)
       if os.path.isdir(os.path.join(os.path.dirname(lib_parent_dir),"include")):
         if(cus['arc_specific'] == 'yes'):
           include_path = os.path.join(os.path.dirname(lib_parent_dir),"include", cus['arc'])
@@ -124,12 +122,10 @@ def setup(i):
 
 
     file_extensions     = hosd.get('file_extensions',{})    # not clear whether hosd or tosd should be used in soft detection
-    print(file_extensions)
     file_root_name     = os.path.basename(full_path).split(".")[0]
-    print("file root name " + file_root_name)
     cus['path_lib']     = path_lib
-    cus['static_lib']   = file_root_name + ".dll.a" #the static lib extension?
-    cus['dynamic_lib']  = file_root_name + file_extensions.get('dll','')
+    cus['static_lib']   = file_root_name + file_extensions.get('a','')
+    cus['dynamic_lib']  = file_root_name + file_extensions.get('so','')
     cus['path_include'] = include_path
     cus['include_name'] = include_file_name
 
