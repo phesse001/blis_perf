@@ -27,6 +27,7 @@ fi
 echo ""
 echo "Building package ..."
 
+#obscure way to set the path based on output of makefile
 make ${CK_MAKE_BEFORE} -j ${CK_HOST_CPU_NUMBER_OF_PROCESSORS} ${CK_MAKE_EXTRA}
 if [ "${?}" != "0" ] ; then
   echo "Error: build failed!"
@@ -35,6 +36,4 @@ fi
 
 ############################################################
 
-#set path for lib
-#export FULL_PATH=${INSTALL_DIR}/${PACKAGE_SUB_DIR}/lib
 return 0

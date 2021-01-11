@@ -4,7 +4,6 @@
 # See CK LICENSE.txt for licensing details
 # See CK COPYRIGHT.txt for copyright details
 #
-# Developer: Grigori Fursin, Grigori.Fursin@cTuning.org, http://fursin.net
 #
 
 ##############################################################################
@@ -98,10 +97,9 @@ def setup(i):
     sdirs=host_d.get('dir_sep','')
 
     fp=cus['full_path']
-    p1=os.path.dirname(fp)
-    pi=os.path.dirname(p1)
-
-    cus['path_lib']=p1
+    lib_parent_dir = os.path.dirname(os.path.realpath(fp))
+    #get perm path that won't manipulate
+    path_lib = lib_parent_dir 
 
     ep=cus['env_prefix']
     env[ep]=pi
@@ -118,9 +116,26 @@ def setup(i):
        sext='.a'
        dext='.so'
 
+    cus['path_lib'] = path_lib
+
     r = ck.access({'action': 'lib_path_export_script', 'module_uoa': 'os', 'host_os_dict': host_d, 
       'lib_path': cus.get('path_lib', '')})
     if r['return']>0: return r
     s += r['script']
+
+    file_root_name = cus.get('file_root_name')
+    file_root_names = cus.get('file_root_names')
+    env_prefix = cus.get('env_prefix','')
+
+    cus['path_lib']     = path_lib
+    cus['static_lib']   = file_root_name + sext
+    cus['dynamic_lib']  = file_root_name + dext
+
+    for fn in file_root_names:
+      env['CK_EXTRA_LIB_'+fn.upper()] = "-lmkl_" + fn
+      cus['extra_dynamic_libs'][fn] = "libmkl_" + fn + dext
+      cus['extra_static_libs'][fn] = "libmkl_" + fn + sext
+
+    env[env_prefix] = path_lib
 
     return {'return':0, 'bat':s}

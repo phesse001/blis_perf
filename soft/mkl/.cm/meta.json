@@ -1,10 +1,17 @@
 {
   "auto_detect": "yes",
   "customize": {
-    "add_include_path": "yes",
+    "add_include_path": "no",
     "check_that_exists": "yes",
     "ck_version": 10,
-    "env_prefix": "CK_ENV_LIB_MKL_CORE",
+    "env_prefix": "CK_ENV_LIB_MKL",
+    "extra_dynamic_libs": {},
+    "extra_static_libs": {},
+    "file_root_name": "libmkl_core",
+    "file_root_names": [
+      "sequential",
+      "intel_lp64"
+    ],
     "limit_recursion_dir_search": {
       "linux": 4,
       "win": 4
@@ -14,10 +21,12 @@
       "win": "libmkl_core.dll"
     }
   },
-  "soft_name": "MKL Core library",
+  "soft_name": "MKL library",
   "tags": [
     "lib",
     "mkl",
-    "core"
+    "core",
+    "sequential",
+    "lp64"
   ]
 }

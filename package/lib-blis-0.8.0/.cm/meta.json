@@ -21,8 +21,8 @@
     }
   },
   "end_full_path": {
-    "linux": "blis/lib/zen2/libblis.so",
-    "win": "blis\\lib\\*\\libblis.3.dll"
+    "linux": "blis/lib",
+    "win": "blis\\lib"
   },
   "need_cpu_info": "yes",
   "only_for_host_os_tags": [

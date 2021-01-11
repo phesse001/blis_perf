@@ -33,6 +33,15 @@ def version_cmd(i):
     return {'return':0, 'cmd':'', 'version':ver}
 
 ##############################################################################
+#used to find path to specified file
+def find_files(filename, search_path):
+   result = []
+   for root, dir, files in os.walk(search_path):
+      if filename in files:
+         result.append(os.path.join(root, filename))
+   return result
+
+##############################################################################
 # setup environment setup
 
 def setup(i):
@@ -78,20 +87,41 @@ def setup(i):
     ck=i['ck_kernel']
     cus=i.get('customize',{})
     full_path=cus.get('full_path','')
-    print(full_path)
 
     hosd=i['host_os_dict']
-    
     tosd=i['target_os_dict']
 
     # Check platform
     tplat=hosd.get('ck_name','')
 
-    env=i['env']
-    # Looking for the parent of the 'include' dir that contains our include_file:
-    #
+    soft_file = cus['soft_file'][tplat]
+    file_extensions = hosd.get('file_extensions',{}) # not clear whether hosd or tosd should be used in soft detection
+    #search in lower dirs for lib file
+    path_results = find_files(soft_file,full_path)
+    #choose first result? maybe let user choose in the future
+    full_path = path_results[0]
+    sep = hosd.get('dir_sep', '')
     lib_parent_dir = os.path.dirname(os.path.realpath(full_path))
     #get perm path that won't manipulate
+
+    d_file_matches = [f for f in os.listdir(lib_parent_dir) if os.path.isfile(os.path.join(lib_parent_dir, f)) and f.endswith(file_extensions.get('dll', ''))]
+    s_file_matches = [f for f in os.listdir(lib_parent_dir) if os.path.isfile(os.path.join(lib_parent_dir, f)) and f.endswith(file_extensions.get('lib', ''))]
+
+    if len(d_file_matches) > 0:
+      d_file = d_file_matches[0]
+    else:
+      return {'return':1, 'error':'can\'t find dynamic library files in ' + lib_parent_dir}
+
+    if len(s_file_matches) > 0:
+      s_file = s_file_matches[0]
+    else:
+      return {'return':1, 'error':'can\'t find static library files in ' + lib_parent_dir}
+
+    cus['static_library'] = s_file
+    cus['dynamic_library'] = d_file
+
+    env=i['env']
+    # Looking for the parent of the 'include' dir that contains our include_file
     path_lib = lib_parent_dir 
     #if cloned from github and configured, there will be an intermediate directory with the name of the arc
     #if library was installed alone to be linked against the library resides in */blis/lib rather than */blis/lib/arc
@@ -120,12 +150,8 @@ def setup(i):
       if os.path.basename(lib_parent_dir) == "":
         return {'return':1, 'error':'can\'t find include file... select installation with include file in \'include\' sub directory'}
 
-
-    file_extensions     = hosd.get('file_extensions',{})    # not clear whether hosd or tosd should be used in soft detection
-    file_root_name     = os.path.basename(full_path).split(".")[0]
-    cus['path_lib']     = path_lib
-    cus['static_lib']   = file_root_name + file_extensions.get('a','')
-    cus['dynamic_lib']  = file_root_name + file_extensions.get('so','')
+    file_root_name = os.path.basename(full_path).split(".")[0]
+    cus['path_lib'] = path_lib
     cus['path_include'] = include_path
     cus['include_name'] = include_file_name
 
@@ -145,8 +171,8 @@ def setup(i):
           shell_setup_script_contents += '\nset PATH='+path_bin+';%PATH%\n\n'
 
     env[env_prefix+'_INCLUDE_NAME'] = cus.get('include_name','')
-    env[env_prefix+'_STATIC_NAME']  = cus.get('static_lib','')
-    env[env_prefix+'_DYNAMIC_NAME'] = cus.get('dynamic_lib','')
+    env[env_prefix+'_STATIC_NAME']  = cus.get('static_library','')
+    env[env_prefix+'_DYNAMIC_NAME'] = cus.get('dynamic_library','')
 
     return {'return':0, 'bat':shell_setup_script_contents}
 
