@@ -73,8 +73,6 @@ def setup(i):
       for f in files:
         if f.endswith('.dll'):
           cus['dynamic_lib'] = f
-        if f.endswith('.a'):
-          cus['static_lib'] = f 
     else:
       return {'return':1, 'error':'can\'t find library file... select installation with library file in \'lib\' sub directory'}
 

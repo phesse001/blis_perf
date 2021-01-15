@@ -10,7 +10,7 @@
       "PACKAGE_SKIP_CLEAN_INSTALL": "YES",
       "PACKAGE_SKIP_CLEAN_OBJ": "YES",
       "PACKAGE_UNZIP": "YES",
-      "PACKAGE_URL": "https://ci.appveyor.com/api/buildjobs/ni1her56uqbkmumd/artifacts"
+      "PACKAGE_URL": "https://ci.appveyor.com/api/buildjobs/5avl7w3hrj7wtn05/artifacts"
     },
     "use_git_revision": "yes",
     "version": "master"
