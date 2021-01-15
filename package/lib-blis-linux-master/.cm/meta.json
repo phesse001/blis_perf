@@ -40,6 +40,7 @@
   "tags": [
     "lib",
     "blis",
+    "linux",
     "v0.8.0"
   ],
   "use_scripts_from_another_entry": {

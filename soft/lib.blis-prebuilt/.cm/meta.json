@@ -2,8 +2,7 @@
   "auto_detect": "yes",
   "customize": {
     "skip_file_check": "yes",
-    "check_that_exists": "yes",
-    "ck_version": 10,
+    "add_include_path": "yes",
     "env_prefix": "CK_ENV_LIB_BLIS",
     "file_root_name": "libblis",
     "include_file": "blis.h",
@@ -12,11 +11,11 @@
       "win": 4
     },
     "soft_file": {
-      "linux": "libblis.so",
+      "linux": "libblis.3.dll",
       "win": "libblis.3.dll"
     }
   },
-  "soft_name": "Blis library",
+  "soft_name": "Blis library (prebuilt)",
   "tags": [
     "lib",
     "blis"

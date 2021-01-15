@@ -1,0 +1,52 @@
+{
+  "customize": {
+    "extra_dir": "",
+    "install_env": {
+      "PACKAGE_AUTOGEN": "NO",
+      "PACKAGE_WGET": "YES",
+      "PACKAGE_SKIP_LINUX_MAKE": "YES",
+      "PACKAGE_SUB_DIR": "blis",
+      "PACKAGE_NAME": "blis.zip",
+      "PACKAGE_SKIP_CLEAN_INSTALL": "YES",
+      "PACKAGE_SKIP_CLEAN_OBJ": "YES",
+      "PACKAGE_UNZIP": "YES",
+      "PACKAGE_URL": "https://ci.appveyor.com/api/buildjobs/ni1her56uqbkmumd/artifacts"
+    },
+    "use_git_revision": "yes",
+    "version": "master"
+  },
+  "deps": {
+    "compiler": {
+      "local": "yes",
+      "name": "C compiler",
+      "sort": 10,
+      "tags": "compiler,lang-c"
+    }
+  },
+  "end_full_path": {
+    "linux": "blis/lib",
+    "win": "blis\\lib"
+  },
+  "need_cpu_info": "yes",
+  "only_for_host_os_tags": [
+    "windows",
+    "linux"
+  ],
+  "only_for_target_os_tags": [
+    "windows",
+    "linux",
+    "android"
+  ],
+  "process_script": "install",
+  "soft_uoa": "895480e4416483d5",
+  "suggested_path": "lib-blis-prebuilt",
+  "tags": [
+    "lib",
+    "blis",
+    "prebuilt"
+  ],
+  "use_scripts_from_another_entry": {
+    "data_uoa": "cd9ccc74060b3d18",
+    "module_uoa": "script"
+  }
+}

@@ -117,8 +117,8 @@ def setup(i):
     else:
       return {'return':1, 'error':'can\'t find static library files in ' + lib_parent_dir}
 
-    cus['static_library'] = s_file
-    cus['dynamic_library'] = d_file
+    cus['static_lib'] = s_file
+    cus['dynamic_lib'] = d_file
 
     env=i['env']
     # Looking for the parent of the 'include' dir that contains our include_file
