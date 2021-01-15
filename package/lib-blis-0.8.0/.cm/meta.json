@@ -6,7 +6,7 @@
       "PACKAGE_GIT": "YES",
       "PACKAGE_NAME": "blis",
       "PACKAGE_SKIP_LINUX_MAKE": "YES",
-      "PACKAGE_SUB_DIR": "blis",
+      "PACKAGE_SUB_DIR": "",
       "PACKAGE_URL": "https://github.com/flame/blis"
     },
     "use_git_revision": "yes",
