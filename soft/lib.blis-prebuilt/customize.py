@@ -67,15 +67,8 @@ def setup(i):
     sdirs=host_d.get('dir_sep','')
 
     fp=cus.get('full_path','')
-    #check that files exist and extract libs
-    files = os.listdir(fp)
-    if len(files) > 0:
-      for f in files:
-        if f.endswith('.dll'):
-          cus['dynamic_lib'] = f
-    else:
-      return {'return':1, 'error':'can\'t find library file... select installation with library file in \'lib\' sub directory'}
-
+    cus['path_lib'] = fp
+    
     #check that header file is there
     include_paths = find_files("blis.h",os.path.dirname(fp))
     if len(include_paths) > 0:
