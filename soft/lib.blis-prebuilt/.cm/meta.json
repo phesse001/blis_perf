@@ -10,9 +10,10 @@
       "linux": 4,
       "win": 4
     },
+    "static_lib":"libblis.a",
     "soft_file": {
-      "linux": "libblis.3.dll",
-      "win": "libblis.3.dll"
+      "linux": "libblis.a",
+      "win": "libblis.a"
     }
   },
   "soft_name": "Blis library (prebuilt)",
