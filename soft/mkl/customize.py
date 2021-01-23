@@ -94,6 +94,7 @@ def setup(i):
     pi=cus.get('path_install','')
 
     host_d=i.get('host_os_dict',{})
+    op_s = host_d['ck_name']
     sdirs=host_d.get('dir_sep','')
 
     fp=cus['full_path']
@@ -102,7 +103,7 @@ def setup(i):
     path_lib = lib_parent_dir 
 
     ep=cus['env_prefix']
-    env[ep]=pi
+    env[ep]=fp
 
     ################################################################
     if win=='yes':
@@ -117,25 +118,42 @@ def setup(i):
        dext='.so'
 
     cus['path_lib'] = path_lib
+    file_root_name = cus.get('file_root_name')
+    file_root_names = cus.get('file_root_names')
+    env_prefix = cus.get('env_prefix','')
+
+    if op_s == 'win':
+      for name in file_root_names:
+        cus['extra_static_libs'][name] = name
 
     r = ck.access({'action': 'lib_path_export_script', 'module_uoa': 'os', 'host_os_dict': host_d, 
       'lib_path': cus.get('path_lib', '')})
     if r['return']>0: return r
     s += r['script']
 
-    file_root_name = cus.get('file_root_name')
-    file_root_names = cus.get('file_root_names')
-    env_prefix = cus.get('env_prefix','')
-
     cus['path_lib']     = path_lib
-    cus['static_lib']   = file_root_name + sext
-    cus['dynamic_lib']  = file_root_name + dext
 
-    for fn in file_root_names:
-      env['CK_EXTRA_LIB_'+fn.upper()] = "-lmkl_" + fn
-      cus['extra_dynamic_libs'][fn] = "libmkl_" + fn + dext
-      cus['extra_static_libs'][fn] = "libmkl_" + fn + sext
+    if op_s == 'win':
+      cus['static_lib']   = file_root_name + sext
+      cus['dynamic_lib']  = file_root_name + dext
+    elif op_s == 'linux':
+      cus['static_lib']   = 'lib_' + file_root_name + sext
+      cus['dynamic_lib']  = 'lib_' + file_root_name + dext
+
+
+    if op_s == 'win' and mingw == False:
+      for fn in file_root_names:
+        env['CK_EXTRA_LIB_'+fn.upper()] = "-lmkl_" + fn
+        cus['extra_dynamic_libs'][fn] = "mkl_" + fn + dext
+        cus['extra_static_libs'][fn] = "mkl_" + fn + sext
+
+    elif op_s == 'linux':
+      for fn in file_root_names:
+        env['CK_EXTRA_LIB_'+fn.upper()] = "-lmkl_" + fn
+        cus['extra_dynamic_libs'][fn] = "libmkl_" + fn + dext
+        cus['extra_static_libs'][fn] = "libmkl_" + fn + sext
+
 
     env[env_prefix] = path_lib
 
-    return {'return':0, 'bat':s}
+    return {'return': 0, 'bat':s}

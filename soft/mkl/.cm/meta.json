@@ -7,10 +7,10 @@
     "env_prefix": "CK_ENV_LIB_MKL",
     "extra_dynamic_libs": {},
     "extra_static_libs": {},
-    "file_root_name": "libmkl_core",
+    "file_root_name": "mkl_core",
     "file_root_names": [
-      "sequential",
-      "intel_lp64"
+      "mkl_sequential",
+      "mkl_intel_lp64"
     ],
     "limit_recursion_dir_search": {
       "linux": 4,
@@ -18,7 +18,7 @@
     },
     "soft_file": {
       "linux": "libmkl_core.so",
-      "win": "libmkl_core.dll"
+      "win": "mkl_core.lib"
     }
   },
   "soft_name": "MKL library",
