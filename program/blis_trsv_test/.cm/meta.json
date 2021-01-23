@@ -12,11 +12,11 @@
        "local": "yes",
        "name": "Blis library",
        "sort": 80,
-       "tags": "lib,blis"
+       "tags": "lib,blis,linux"
     }
   },
   "compiler_env": "CK_CC",
-  "build_compiler_vars":{"POSIX_C_SOURCE":"200112L", "BLIS_VERSION_STRING":"0.8.0-9"},
+  "build_compiler_vars":{"POSIX_C_SOURCE":"200112L", "BLIS_VERSION_STRING":"0.8.0-9", "BLIS":""},
   "extra_ld_vars": "$<<CK_EXTRA_LIB_M>>$",
   "main_language": "c",
   "process_in_tmp": "yes",
