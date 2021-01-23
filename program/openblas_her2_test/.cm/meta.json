@@ -18,11 +18,11 @@
        "local": "yes",
        "name": "Blis library",
        "sort": 80,
-       "tags": "lib,blis"
+       "tags": "lib,blis,linux"
     }
   },
   "compiler_env": "CK_CC",
-  "build_compiler_vars":{"POSIX_C_SOURCE":"200112L", "BLIS_VERSION_STRING":"0.8.0-9"},
+  "build_compiler_vars":{"POSIX_C_SOURCE":"200112L", "BLIS_VERSION_STRING":"0.8.0-9", "BLAS":"openblas"},
   "extra_ld_vars": "$<<CK_EXTRA_LIB_M>>$",
   "main_language": "c",
   "process_in_tmp": "yes",
@@ -31,7 +31,6 @@
     "default": {
       "ignore_return_code": "no",
       "run_time": {
-        "fine_grain_timer_file": "tmp-ck-timer.json",
         "run_cmd_main": "$#BIN_FILE#$ ",
         "run_cmd_out1": "tmp-output1.tmp",
         "run_cmd_out2": "tmp-output2.tmp",
