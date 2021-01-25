@@ -101,9 +101,6 @@ def setup(i):
     #get perm path that won't manipulate
     path_lib = lib_parent_dir 
 
-    ep=cus['env_prefix']
-    env[ep]=pi
-
     ################################################################
     if win=='yes':
        if remote=='yes' or mingw=='yes': 
@@ -135,6 +132,13 @@ def setup(i):
       env['CK_EXTRA_LIB_'+fn.upper()] = "-lmkl_" + fn
       cus['extra_dynamic_libs'][fn] = "libmkl_" + fn + dext
       cus['extra_static_libs'][fn] = "libmkl_" + fn + sext
+
+    if mingw == 'yes':
+      for fn in file_root_names:
+        env['CK_EXTRA_LIB_'+fn.upper()] = path_lib + sdirs + fn + sext
+        cus['extra_dynamic_libs'][fn] = "libmkl_" + fn + dext
+        cus['extra_static_libs'][fn] = "libmkl_" + fn + sext
+
 
     env[env_prefix] = path_lib
 
