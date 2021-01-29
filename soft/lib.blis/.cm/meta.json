@@ -12,13 +12,17 @@
       "win": 4
     },
     "soft_file": {
-      "linux": "libblis.so",
-      "win": "libblis.3.dll"
-    }
+      "linux": "libblis.a"
+    },
+   "only_for_target_os_tags": [
+      "linux"
+    ]
   },
   "soft_name": "Blis library",
   "tags": [
     "lib",
-    "blis"
+    "blis",
+    "linux",
+    "v0.8.0"
   ]
 }

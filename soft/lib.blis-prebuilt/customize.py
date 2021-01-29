@@ -8,6 +8,7 @@ def find_files(filename, search_path):
       if filename in files:
          result.append(os.path.join(root, filename))
    return result
+
 ##############################################################################
 # setup environment setup
 
@@ -49,25 +50,15 @@ def setup(i):
     """
 
     # Get variables
-    ck=i['ck_kernel']
-
-    iv=i.get('interactive','')
-
     env=i.get('env',{})
-    cfg=i.get('cfg',{})
     deps=i.get('deps',{})
     tags=i.get('tags',[])
     cus=i.get('customize',{})
-
     tosd=i['target_os_dict']
-
-    envp=cus.get('env_prefix','')
-
-    host_d=i.get('host_os_dict',{})
-    sdirs=host_d.get('dir_sep','')
+    sep=host_d.get('dir_sep','')
 
     fp=cus.get('full_path','')
-    cus['path_lib'] = fp
+    cus['path_lib'] = os.path.dirname(fp)
     
     #check that header file is there
     include_paths = find_files("blis.h",os.path.dirname(fp))
@@ -76,7 +67,6 @@ def setup(i):
     else:
       return {'return':1, 'error':'can\'t find include file... select installation with include file in \'include\' sub directory'}
 
-    sep = tosd.get('dir_sep','')
     cus['path_include']=sep.join(pi.split(sep)[:-1])
 
     ep=cus.get('env_prefix','')
