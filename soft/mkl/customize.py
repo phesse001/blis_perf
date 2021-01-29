@@ -131,19 +131,6 @@ def setup(i):
       cus['static_lib']   = 'lib_' + file_root_name + sext
       cus['dynamic_lib']  = 'lib_' + file_root_name + dext
 
-<<<<<<< HEAD
-    elif op_s == 'linux':
-      for fn in file_root_names:
-        env['CK_EXTRA_LIB_'+fn.upper()] = "-lmkl_" + fn
-        cus['extra_dynamic_libs'][fn] = "libmkl_" + fn + dext
-        cus['extra_static_libs'][fn] = "libmkl_" + fn + sext
-=======
-    for fn in file_root_names:
-      env['CK_EXTRA_LIB_MKL_'+fn.upper()] = "-lmkl_" + fn
-      cus['extra_dynamic_libs'][fn] = "libmkl_" + fn + dext
-      cus['extra_static_libs'][fn] = "libmkl_" + fn + sext
->>>>>>> dc99e73e970b4671756a6128df896062998064bc
-
     #assume if on windows using mingw for now :( (not sure if there is meta information on what compilers are supported, maybe can add)
     if win == 'yes':
       for fn in file_root_names:

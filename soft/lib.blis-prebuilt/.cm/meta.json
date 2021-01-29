@@ -10,7 +10,6 @@
       "linux": 4,
       "win": 4
     },
-    "dynamic_lib":"libblis.3.dll",
     "soft_file": {
       "win": "libblis.3.dll"
     }
@@ -18,6 +17,7 @@
   "soft_name": "Blis library (prebuilt)",
   "tags": [
     "lib",
-    "blis"
+    "blis",
+    "prebuilt"
   ]
 }

@@ -55,10 +55,12 @@ def setup(i):
     tags=i.get('tags',[])
     cus=i.get('customize',{})
     tosd=i['target_os_dict']
-    sep=host_d.get('dir_sep','')
+    sep=tosd.get('dir_sep','')
+    op_s = tosd.get('ck_name', '')
 
     fp=cus.get('full_path','')
-    cus['path_lib'] = os.path.dirname(fp)
+    #for some reason filename isn't added to full path so we can just use the full path found without going up a dir
+    cus['path_lib'] = fp
     
     #check that header file is there
     include_paths = find_files("blis.h",os.path.dirname(fp))
@@ -67,13 +69,15 @@ def setup(i):
     else:
       return {'return':1, 'error':'can\'t find include file... select installation with include file in \'include\' sub directory'}
 
+    #adding to cus for what program module looks for
     cus['path_include']=sep.join(pi.split(sep)[:-1])
+    cus['dynamic_lib'] = cus['soft_file'][op_s]
 
     ep=cus.get('env_prefix','')
     if fp!='' and ep!='':
        env[ep]=fp
     #add extra lib path for linking to mingw
-    lib = cus.get("dynamic_lib", "")
+    lib = cus['dynamic_lib']
     env['CK_EXTRA_LIB_BLIS'] = "\"" + fp + sep + lib + "\""
 
     return {'return':0, 'bat': ''}
