@@ -71,7 +71,6 @@ def setup(i):
     """
 
     import os
-
     # Get variables
     ck=i['ck_kernel']
     s=''
@@ -100,19 +99,11 @@ def setup(i):
     fp=cus['full_path']
     lib_parent_dir = os.path.dirname(os.path.realpath(fp))
     #get perm path that won't manipulate
-    path_lib = lib_parent_dir 
+    path_lib = lib_parent_dir
 
-    ep=cus['env_prefix']
-    env[ep]=fp
-
-    ################################################################
     if win=='yes':
-       if remote=='yes' or mingw=='yes': 
-          sext='.a'
-          dext='.so'
-       else:
-          sext='.lib'
-          dext='.dll'
+       sext='.lib'
+       dext='.dll'
     else:
        sext='.a'
        dext='.so'
@@ -140,16 +131,16 @@ def setup(i):
       cus['static_lib']   = 'lib_' + file_root_name + sext
       cus['dynamic_lib']  = 'lib_' + file_root_name + dext
 
-
-    if op_s == 'win':
-      for fn in file_root_names:
-        env['CK_EXTRA_LIB_'+fn.upper()] = "-l" + fn
-        cus['extra_dynamic_libs'][fn] = "mkl_" + fn + dext
-        cus['extra_static_libs'][fn] = "mkl_" + fn + sext
-
     elif op_s == 'linux':
       for fn in file_root_names:
         env['CK_EXTRA_LIB_'+fn.upper()] = "-lmkl_" + fn
+        cus['extra_dynamic_libs'][fn] = "libmkl_" + fn + dext
+        cus['extra_static_libs'][fn] = "libmkl_" + fn + sext
+
+    #assume if on windows using mingw for now :( (not sure if there is meta information on what compilers are supported, maybe can add)
+    if win == 'yes':
+      for fn in file_root_names:
+        env['CK_EXTRA_LIB_'+fn.upper()] = "\"" + path_lib + sdirs + fn + sext + "\""
         cus['extra_dynamic_libs'][fn] = "libmkl_" + fn + dext
         cus['extra_static_libs'][fn] = "libmkl_" + fn + sext
 

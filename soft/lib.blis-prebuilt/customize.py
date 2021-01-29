@@ -82,5 +82,8 @@ def setup(i):
     ep=cus.get('env_prefix','')
     if fp!='' and ep!='':
        env[ep]=fp
+    #add extra lib path for linking to mingw
+    lib = cus.get("dynamic_lib", "")
+    env['CK_EXTRA_LIB_BLIS'] = "\"" + fp + sep + lib + "\""
 
     return {'return':0, 'bat': ''}

@@ -7,7 +7,7 @@
     "env_prefix": "CK_ENV_LIB_MKL",
     "extra_dynamic_libs": {},
     "extra_static_libs": {},
-    "file_root_name": "mkl_sequential",
+    "file_root_name": "mkl_core",
     "file_root_names": [
       "mkl_sequential",
       "mkl_intel_lp64"
