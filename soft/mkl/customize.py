@@ -129,7 +129,7 @@ def setup(i):
     cus['dynamic_lib']  = file_root_name + dext
 
     for fn in file_root_names:
-      env['CK_EXTRA_LIB_'+fn.upper()] = "-lmkl_" + fn
+      env['CK_EXTRA_LIB_MKL_'+fn.upper()] = "-lmkl_" + fn
       cus['extra_dynamic_libs'][fn] = "libmkl_" + fn + dext
       cus['extra_static_libs'][fn] = "libmkl_" + fn + sext
 

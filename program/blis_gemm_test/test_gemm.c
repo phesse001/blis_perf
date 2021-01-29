@@ -178,7 +178,7 @@ int main( int argc, char** argv )
 			float*   betap  = bli_obj_buffer( &beta );
 			float*   cp     = bli_obj_buffer( &c );
 
-			sgemm_( &f77_transa,
+			sgemm_ ( &f77_transa,
 			        &f77_transb,
 			        &mm,
 			        &nn,
