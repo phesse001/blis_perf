@@ -122,19 +122,24 @@ def setup(i):
     if r['return']>0: return r
     s += r['script']
 
-    cus['path_lib'] = path_lib
-
     if op_s == 'win':
       cus['static_lib']   = file_root_name + sext
       cus['dynamic_lib']  = file_root_name + dext
+
     elif op_s == 'linux':
-      cus['static_lib']   = 'lib_' + file_root_name + sext
-      cus['dynamic_lib']  = 'lib_' + file_root_name + dext
+      cus['static_lib']   = 'lib' + file_root_name + sext
+      cus['dynamic_lib']  = 'lib' + file_root_name + dext
 
     #assume if on windows using mingw for now :( (not sure if there is meta information on what compilers are supported, maybe can add)
-    if win == 'yes':
+    if op_s == 'win':
       for fn in file_root_names:
         env['CK_EXTRA_LIB_'+fn.upper()] = "\"" + path_lib + sdirs + fn + sext + "\""
+        cus['extra_dynamic_libs'][fn] = "libmkl_" + fn + dext
+        cus['extra_static_libs'][fn] = "libmkl_" + fn + sext
+
+    if op_s == 'linux':
+      for fn in file_root_names:
+        env['CK_EXTRA_LIB_'+fn.upper()] = "-l" + fn
         cus['extra_dynamic_libs'][fn] = "libmkl_" + fn + dext
         cus['extra_static_libs'][fn] = "libmkl_" + fn + sext
 

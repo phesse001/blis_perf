@@ -11,17 +11,19 @@
     "lib-mkl": {
        "local": "yes",
        "name": "MKL library",
-       "tags": "lib,mkl,core,sequential,lp64"
+       "tags": "lib,mkl,core,sequential,lp64",
+       "skip_linking": "yes"
     },
     "lib-blis": {
        "local": "yes",
        "name": "Blis library",
-       "tags": "lib,blis,linux"
+       "tags": "lib,blis,linux",
+       "skip_linking": "yes"
     }
   },
   "compiler_env": "CK_CC",
   "build_compiler_vars":{"POSIX_C_SOURCE":"200112L", "BLIS_VERSION_STRING":"0.8.0-9", "BLAS":"mkl"},
-  "extra_ld_vars": "$<<CK_EXTRA_LIB_M>>$ $<<CK_EXTRA_LIB_INTEL_LP64>>$ $<<CK_EXTRA_LIB_SEQUENTIAL>>$ $<<CK_EXTRA_LIB_RT>>$ $<<CK_EXTRA_LIB_DL>>$ $<<CK_COMPILER_FLAG_PTHREAD_LIB>>$",
+  "extra_ld_vars": "$<<CK_ENV_LIB_MKL>>$/libmkl_intel_lp64.a $<<CK_ENV_LIB_MKL>>$/libmkl_sequential.a $<<CK_ENV_LIB_MKL>>$/libmkl_core.a $<<CK_ENV_LIB_BLIS>>$/libblis.a $<<CK_EXTRA_LIB_RT>>$ $<<CK_EXTRA_LIB_DL>>$ $<<CK_COMPILER_FLAG_PTHREAD_LIB>>$ $<<CK_EXTRA_LIB_M>>$",
   "main_language": "c",
   "process_in_tmp": "yes",
   "program": "yes",
