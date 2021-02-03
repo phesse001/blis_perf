@@ -1,0 +1,92 @@
+gcc -O2 -fomit-frame-pointer -Wall -Wno-unused-function -Wfatal-errors -fPIC -std=c99 -D_POSIX_C_SOURCE=200112L -I../include/zen2 -DBLIS_VERSION_STRING=\"0.8.0-9\" -I. -DBLIS -c test_dotv.c -o test_dotv_blis.o
+gcc test_dotv_blis.o                             ../lib/zen2/libblis.a  -lm -lpthread -lrt -o test_dotv_blis.x
+gcc -O2 -fomit-frame-pointer -Wall -Wno-unused-function -Wfatal-errors -fPIC -std=c99 -D_POSIX_C_SOURCE=200112L -I../include/zen2 -DBLIS_VERSION_STRING=\"0.8.0-9\" -I. -DBLIS -c test_axpyv.c -o test_axpyv_blis.o
+gcc test_axpyv_blis.o                             ../lib/zen2/libblis.a  -lm -lpthread -lrt -o test_axpyv_blis.x
+gcc -O2 -fomit-frame-pointer -Wall -Wno-unused-function -Wfatal-errors -fPIC -std=c99 -D_POSIX_C_SOURCE=200112L -I../include/zen2 -DBLIS_VERSION_STRING=\"0.8.0-9\" -I. -DBLIS -c test_gemv.c -o test_gemv_blis.o
+gcc test_gemv_blis.o                             ../lib/zen2/libblis.a  -lm -lpthread -lrt -o test_gemv_blis.x
+gcc -O2 -fomit-frame-pointer -Wall -Wno-unused-function -Wfatal-errors -fPIC -std=c99 -D_POSIX_C_SOURCE=200112L -I../include/zen2 -DBLIS_VERSION_STRING=\"0.8.0-9\" -I. -DBLIS -c test_ger.c -o test_ger_blis.o
+gcc test_ger_blis.o                             ../lib/zen2/libblis.a  -lm -lpthread -lrt -o test_ger_blis.x
+gcc -O2 -fomit-frame-pointer -Wall -Wno-unused-function -Wfatal-errors -fPIC -std=c99 -D_POSIX_C_SOURCE=200112L -I../include/zen2 -DBLIS_VERSION_STRING=\"0.8.0-9\" -I. -DBLIS -c test_hemv.c -o test_hemv_blis.o
+gcc test_hemv_blis.o                             ../lib/zen2/libblis.a  -lm -lpthread -lrt -o test_hemv_blis.x
+gcc -O2 -fomit-frame-pointer -Wall -Wno-unused-function -Wfatal-errors -fPIC -std=c99 -D_POSIX_C_SOURCE=200112L -I../include/zen2 -DBLIS_VERSION_STRING=\"0.8.0-9\" -I. -DBLIS -c test_her.c -o test_her_blis.o
+gcc test_her_blis.o                             ../lib/zen2/libblis.a  -lm -lpthread -lrt -o test_her_blis.x
+gcc -O2 -fomit-frame-pointer -Wall -Wno-unused-function -Wfatal-errors -fPIC -std=c99 -D_POSIX_C_SOURCE=200112L -I../include/zen2 -DBLIS_VERSION_STRING=\"0.8.0-9\" -I. -DBLIS -c test_her2.c -o test_her2_blis.o
+gcc test_her2_blis.o                             ../lib/zen2/libblis.a  -lm -lpthread -lrt -o test_her2_blis.x
+gcc -O2 -fomit-frame-pointer -Wall -Wno-unused-function -Wfatal-errors -fPIC -std=c99 -D_POSIX_C_SOURCE=200112L -I../include/zen2 -DBLIS_VERSION_STRING=\"0.8.0-9\" -I. -DBLIS -c test_trmv.c -o test_trmv_blis.o
+gcc test_trmv_blis.o                             ../lib/zen2/libblis.a  -lm -lpthread -lrt -o test_trmv_blis.x
+gcc -O2 -fomit-frame-pointer -Wall -Wno-unused-function -Wfatal-errors -fPIC -std=c99 -D_POSIX_C_SOURCE=200112L -I../include/zen2 -DBLIS_VERSION_STRING=\"0.8.0-9\" -I. -DBLIS -c test_trsv.c -o test_trsv_blis.o
+gcc test_trsv_blis.o                             ../lib/zen2/libblis.a  -lm -lpthread -lrt -o test_trsv_blis.x
+gcc -O2 -fomit-frame-pointer -Wall -Wno-unused-function -Wfatal-errors -fPIC -std=c99 -D_POSIX_C_SOURCE=200112L -I../include/zen2 -DBLIS_VERSION_STRING=\"0.8.0-9\" -I. -DBLIS -c test_gemm.c -o test_gemm_blis.o
+gcc test_gemm_blis.o                             ../lib/zen2/libblis.a  -lm -lpthread -lrt -o test_gemm_blis.x
+gcc -O2 -fomit-frame-pointer -Wall -Wno-unused-function -Wfatal-errors -fPIC -std=c99 -D_POSIX_C_SOURCE=200112L -I../include/zen2 -DBLIS_VERSION_STRING=\"0.8.0-9\" -I. -DBLIS -c test_hemm.c -o test_hemm_blis.o
+gcc test_hemm_blis.o                             ../lib/zen2/libblis.a  -lm -lpthread -lrt -o test_hemm_blis.x
+gcc -O2 -fomit-frame-pointer -Wall -Wno-unused-function -Wfatal-errors -fPIC -std=c99 -D_POSIX_C_SOURCE=200112L -I../include/zen2 -DBLIS_VERSION_STRING=\"0.8.0-9\" -I. -DBLIS -c test_herk.c -o test_herk_blis.o
+gcc test_herk_blis.o                             ../lib/zen2/libblis.a  -lm -lpthread -lrt -o test_herk_blis.x
+gcc -O2 -fomit-frame-pointer -Wall -Wno-unused-function -Wfatal-errors -fPIC -std=c99 -D_POSIX_C_SOURCE=200112L -I../include/zen2 -DBLIS_VERSION_STRING=\"0.8.0-9\" -I. -DBLIS -c test_her2k.c -o test_her2k_blis.o
+gcc test_her2k_blis.o                             ../lib/zen2/libblis.a  -lm -lpthread -lrt -o test_her2k_blis.x
+gcc -O2 -fomit-frame-pointer -Wall -Wno-unused-function -Wfatal-errors -fPIC -std=c99 -D_POSIX_C_SOURCE=200112L -I../include/zen2 -DBLIS_VERSION_STRING=\"0.8.0-9\" -I. -DBLIS -c test_trmm.c -o test_trmm_blis.o
+gcc test_trmm_blis.o                             ../lib/zen2/libblis.a  -lm -lpthread -lrt -o test_trmm_blis.x
+gcc -O2 -fomit-frame-pointer -Wall -Wno-unused-function -Wfatal-errors -fPIC -std=c99 -D_POSIX_C_SOURCE=200112L -I../include/zen2 -DBLIS_VERSION_STRING=\"0.8.0-9\" -I. -DBLIS -c test_trsm.c -o test_trsm_blis.o
+gcc test_trsm_blis.o                             ../lib/zen2/libblis.a  -lm -lpthread -lrt -o test_trsm_blis.x
+gcc -O2 -fomit-frame-pointer -Wall -Wno-unused-function -Wfatal-errors -fPIC -std=c99 -D_POSIX_C_SOURCE=200112L -I../include/zen2 -DBLIS_VERSION_STRING=\"0.8.0-9\" -I. -DBLAS=\"openblas\" -c test_dotv.c -o test_dotv_openblas.o
+gcc test_dotv_openblas.o             /home/phesse/CK-TOOLS/lib-openblas-0.3.3-gcc-9.3.0-linux-64/src/libopenblas.a ../lib/zen2/libblis.a  -lm -lpthread -lrt -o test_dotv_openblas.x
+gcc -O2 -fomit-frame-pointer -Wall -Wno-unused-function -Wfatal-errors -fPIC -std=c99 -D_POSIX_C_SOURCE=200112L -I../include/zen2 -DBLIS_VERSION_STRING=\"0.8.0-9\" -I. -DBLAS=\"openblas\" -c test_axpyv.c -o test_axpyv_openblas.o
+gcc test_axpyv_openblas.o             /home/phesse/CK-TOOLS/lib-openblas-0.3.3-gcc-9.3.0-linux-64/src/libopenblas.a ../lib/zen2/libblis.a  -lm -lpthread -lrt -o test_axpyv_openblas.x
+gcc -O2 -fomit-frame-pointer -Wall -Wno-unused-function -Wfatal-errors -fPIC -std=c99 -D_POSIX_C_SOURCE=200112L -I../include/zen2 -DBLIS_VERSION_STRING=\"0.8.0-9\" -I. -DBLAS=\"openblas\" -c test_gemv.c -o test_gemv_openblas.o
+gcc test_gemv_openblas.o             /home/phesse/CK-TOOLS/lib-openblas-0.3.3-gcc-9.3.0-linux-64/src/libopenblas.a ../lib/zen2/libblis.a  -lm -lpthread -lrt -o test_gemv_openblas.x
+gcc -O2 -fomit-frame-pointer -Wall -Wno-unused-function -Wfatal-errors -fPIC -std=c99 -D_POSIX_C_SOURCE=200112L -I../include/zen2 -DBLIS_VERSION_STRING=\"0.8.0-9\" -I. -DBLAS=\"openblas\" -c test_ger.c -o test_ger_openblas.o
+gcc test_ger_openblas.o             /home/phesse/CK-TOOLS/lib-openblas-0.3.3-gcc-9.3.0-linux-64/src/libopenblas.a ../lib/zen2/libblis.a  -lm -lpthread -lrt -o test_ger_openblas.x
+gcc -O2 -fomit-frame-pointer -Wall -Wno-unused-function -Wfatal-errors -fPIC -std=c99 -D_POSIX_C_SOURCE=200112L -I../include/zen2 -DBLIS_VERSION_STRING=\"0.8.0-9\" -I. -DBLAS=\"openblas\" -c test_hemv.c -o test_hemv_openblas.o
+gcc test_hemv_openblas.o             /home/phesse/CK-TOOLS/lib-openblas-0.3.3-gcc-9.3.0-linux-64/src/libopenblas.a ../lib/zen2/libblis.a  -lm -lpthread -lrt -o test_hemv_openblas.x
+gcc -O2 -fomit-frame-pointer -Wall -Wno-unused-function -Wfatal-errors -fPIC -std=c99 -D_POSIX_C_SOURCE=200112L -I../include/zen2 -DBLIS_VERSION_STRING=\"0.8.0-9\" -I. -DBLAS=\"openblas\" -c test_her.c -o test_her_openblas.o
+gcc test_her_openblas.o             /home/phesse/CK-TOOLS/lib-openblas-0.3.3-gcc-9.3.0-linux-64/src/libopenblas.a ../lib/zen2/libblis.a  -lm -lpthread -lrt -o test_her_openblas.x
+gcc -O2 -fomit-frame-pointer -Wall -Wno-unused-function -Wfatal-errors -fPIC -std=c99 -D_POSIX_C_SOURCE=200112L -I../include/zen2 -DBLIS_VERSION_STRING=\"0.8.0-9\" -I. -DBLAS=\"openblas\" -c test_her2.c -o test_her2_openblas.o
+gcc test_her2_openblas.o             /home/phesse/CK-TOOLS/lib-openblas-0.3.3-gcc-9.3.0-linux-64/src/libopenblas.a ../lib/zen2/libblis.a  -lm -lpthread -lrt -o test_her2_openblas.x
+gcc -O2 -fomit-frame-pointer -Wall -Wno-unused-function -Wfatal-errors -fPIC -std=c99 -D_POSIX_C_SOURCE=200112L -I../include/zen2 -DBLIS_VERSION_STRING=\"0.8.0-9\" -I. -DBLAS=\"openblas\" -c test_trmv.c -o test_trmv_openblas.o
+gcc test_trmv_openblas.o             /home/phesse/CK-TOOLS/lib-openblas-0.3.3-gcc-9.3.0-linux-64/src/libopenblas.a ../lib/zen2/libblis.a  -lm -lpthread -lrt -o test_trmv_openblas.x
+gcc -O2 -fomit-frame-pointer -Wall -Wno-unused-function -Wfatal-errors -fPIC -std=c99 -D_POSIX_C_SOURCE=200112L -I../include/zen2 -DBLIS_VERSION_STRING=\"0.8.0-9\" -I. -DBLAS=\"openblas\" -c test_trsv.c -o test_trsv_openblas.o
+gcc test_trsv_openblas.o             /home/phesse/CK-TOOLS/lib-openblas-0.3.3-gcc-9.3.0-linux-64/src/libopenblas.a ../lib/zen2/libblis.a  -lm -lpthread -lrt -o test_trsv_openblas.x
+gcc -O2 -fomit-frame-pointer -Wall -Wno-unused-function -Wfatal-errors -fPIC -std=c99 -D_POSIX_C_SOURCE=200112L -I../include/zen2 -DBLIS_VERSION_STRING=\"0.8.0-9\" -I. -DBLAS=\"openblas\" -c test_gemm.c -o test_gemm_openblas.o
+gcc test_gemm_openblas.o             /home/phesse/CK-TOOLS/lib-openblas-0.3.3-gcc-9.3.0-linux-64/src/libopenblas.a ../lib/zen2/libblis.a  -lm -lpthread -lrt -o test_gemm_openblas.x
+gcc -O2 -fomit-frame-pointer -Wall -Wno-unused-function -Wfatal-errors -fPIC -std=c99 -D_POSIX_C_SOURCE=200112L -I../include/zen2 -DBLIS_VERSION_STRING=\"0.8.0-9\" -I. -DBLAS=\"openblas\" -c test_hemm.c -o test_hemm_openblas.o
+gcc test_hemm_openblas.o             /home/phesse/CK-TOOLS/lib-openblas-0.3.3-gcc-9.3.0-linux-64/src/libopenblas.a ../lib/zen2/libblis.a  -lm -lpthread -lrt -o test_hemm_openblas.x
+gcc -O2 -fomit-frame-pointer -Wall -Wno-unused-function -Wfatal-errors -fPIC -std=c99 -D_POSIX_C_SOURCE=200112L -I../include/zen2 -DBLIS_VERSION_STRING=\"0.8.0-9\" -I. -DBLAS=\"openblas\" -c test_herk.c -o test_herk_openblas.o
+gcc test_herk_openblas.o             /home/phesse/CK-TOOLS/lib-openblas-0.3.3-gcc-9.3.0-linux-64/src/libopenblas.a ../lib/zen2/libblis.a  -lm -lpthread -lrt -o test_herk_openblas.x
+gcc -O2 -fomit-frame-pointer -Wall -Wno-unused-function -Wfatal-errors -fPIC -std=c99 -D_POSIX_C_SOURCE=200112L -I../include/zen2 -DBLIS_VERSION_STRING=\"0.8.0-9\" -I. -DBLAS=\"openblas\" -c test_her2k.c -o test_her2k_openblas.o
+gcc test_her2k_openblas.o             /home/phesse/CK-TOOLS/lib-openblas-0.3.3-gcc-9.3.0-linux-64/src/libopenblas.a ../lib/zen2/libblis.a  -lm -lpthread -lrt -o test_her2k_openblas.x
+gcc -O2 -fomit-frame-pointer -Wall -Wno-unused-function -Wfatal-errors -fPIC -std=c99 -D_POSIX_C_SOURCE=200112L -I../include/zen2 -DBLIS_VERSION_STRING=\"0.8.0-9\" -I. -DBLAS=\"openblas\" -c test_trmm.c -o test_trmm_openblas.o
+gcc test_trmm_openblas.o             /home/phesse/CK-TOOLS/lib-openblas-0.3.3-gcc-9.3.0-linux-64/src/libopenblas.a ../lib/zen2/libblis.a  -lm -lpthread -lrt -o test_trmm_openblas.x
+gcc -O2 -fomit-frame-pointer -Wall -Wno-unused-function -Wfatal-errors -fPIC -std=c99 -D_POSIX_C_SOURCE=200112L -I../include/zen2 -DBLIS_VERSION_STRING=\"0.8.0-9\" -I. -DBLAS=\"openblas\" -c test_trsm.c -o test_trsm_openblas.o
+gcc test_trsm_openblas.o             /home/phesse/CK-TOOLS/lib-openblas-0.3.3-gcc-9.3.0-linux-64/src/libopenblas.a ../lib/zen2/libblis.a  -lm -lpthread -lrt -o test_trsm_openblas.x
+gcc -O2 -fomit-frame-pointer -Wall -Wno-unused-function -Wfatal-errors -fPIC -std=c99 -D_POSIX_C_SOURCE=200112L -I../include/zen2 -DBLIS_VERSION_STRING=\"0.8.0-9\" -I. -DBLAS=\"mkl\" -c test_dotv.c -o test_dotv_mkl.o
+gcc test_dotv_mkl.o             -L/opt/intel/mkl/lib/intel64 -lmkl_intel_lp64 -lmkl_core -lmkl_sequential -lpthread -lm -ldl      ../lib/zen2/libblis.a  -lm -lpthread -lrt -o test_dotv_mkl.x
+gcc -O2 -fomit-frame-pointer -Wall -Wno-unused-function -Wfatal-errors -fPIC -std=c99 -D_POSIX_C_SOURCE=200112L -I../include/zen2 -DBLIS_VERSION_STRING=\"0.8.0-9\" -I. -DBLAS=\"mkl\" -c test_axpyv.c -o test_axpyv_mkl.o
+gcc test_axpyv_mkl.o             -L/opt/intel/mkl/lib/intel64 -lmkl_intel_lp64 -lmkl_core -lmkl_sequential -lpthread -lm -ldl      ../lib/zen2/libblis.a  -lm -lpthread -lrt -o test_axpyv_mkl.x
+gcc -O2 -fomit-frame-pointer -Wall -Wno-unused-function -Wfatal-errors -fPIC -std=c99 -D_POSIX_C_SOURCE=200112L -I../include/zen2 -DBLIS_VERSION_STRING=\"0.8.0-9\" -I. -DBLAS=\"mkl\" -c test_gemv.c -o test_gemv_mkl.o
+gcc test_gemv_mkl.o             -L/opt/intel/mkl/lib/intel64 -lmkl_intel_lp64 -lmkl_core -lmkl_sequential -lpthread -lm -ldl      ../lib/zen2/libblis.a  -lm -lpthread -lrt -o test_gemv_mkl.x
+gcc -O2 -fomit-frame-pointer -Wall -Wno-unused-function -Wfatal-errors -fPIC -std=c99 -D_POSIX_C_SOURCE=200112L -I../include/zen2 -DBLIS_VERSION_STRING=\"0.8.0-9\" -I. -DBLAS=\"mkl\" -c test_ger.c -o test_ger_mkl.o
+gcc test_ger_mkl.o             -L/opt/intel/mkl/lib/intel64 -lmkl_intel_lp64 -lmkl_core -lmkl_sequential -lpthread -lm -ldl      ../lib/zen2/libblis.a  -lm -lpthread -lrt -o test_ger_mkl.x
+gcc -O2 -fomit-frame-pointer -Wall -Wno-unused-function -Wfatal-errors -fPIC -std=c99 -D_POSIX_C_SOURCE=200112L -I../include/zen2 -DBLIS_VERSION_STRING=\"0.8.0-9\" -I. -DBLAS=\"mkl\" -c test_hemv.c -o test_hemv_mkl.o
+gcc test_hemv_mkl.o             -L/opt/intel/mkl/lib/intel64 -lmkl_intel_lp64 -lmkl_core -lmkl_sequential -lpthread -lm -ldl      ../lib/zen2/libblis.a  -lm -lpthread -lrt -o test_hemv_mkl.x
+gcc -O2 -fomit-frame-pointer -Wall -Wno-unused-function -Wfatal-errors -fPIC -std=c99 -D_POSIX_C_SOURCE=200112L -I../include/zen2 -DBLIS_VERSION_STRING=\"0.8.0-9\" -I. -DBLAS=\"mkl\" -c test_her.c -o test_her_mkl.o
+gcc test_her_mkl.o             -L/opt/intel/mkl/lib/intel64 -lmkl_intel_lp64 -lmkl_core -lmkl_sequential -lpthread -lm -ldl      ../lib/zen2/libblis.a  -lm -lpthread -lrt -o test_her_mkl.x
+gcc -O2 -fomit-frame-pointer -Wall -Wno-unused-function -Wfatal-errors -fPIC -std=c99 -D_POSIX_C_SOURCE=200112L -I../include/zen2 -DBLIS_VERSION_STRING=\"0.8.0-9\" -I. -DBLAS=\"mkl\" -c test_her2.c -o test_her2_mkl.o
+gcc test_her2_mkl.o             -L/opt/intel/mkl/lib/intel64 -lmkl_intel_lp64 -lmkl_core -lmkl_sequential -lpthread -lm -ldl      ../lib/zen2/libblis.a  -lm -lpthread -lrt -o test_her2_mkl.x
+gcc -O2 -fomit-frame-pointer -Wall -Wno-unused-function -Wfatal-errors -fPIC -std=c99 -D_POSIX_C_SOURCE=200112L -I../include/zen2 -DBLIS_VERSION_STRING=\"0.8.0-9\" -I. -DBLAS=\"mkl\" -c test_trmv.c -o test_trmv_mkl.o
+gcc test_trmv_mkl.o             -L/opt/intel/mkl/lib/intel64 -lmkl_intel_lp64 -lmkl_core -lmkl_sequential -lpthread -lm -ldl      ../lib/zen2/libblis.a  -lm -lpthread -lrt -o test_trmv_mkl.x
+gcc -O2 -fomit-frame-pointer -Wall -Wno-unused-function -Wfatal-errors -fPIC -std=c99 -D_POSIX_C_SOURCE=200112L -I../include/zen2 -DBLIS_VERSION_STRING=\"0.8.0-9\" -I. -DBLAS=\"mkl\" -c test_trsv.c -o test_trsv_mkl.o
+gcc test_trsv_mkl.o             -L/opt/intel/mkl/lib/intel64 -lmkl_intel_lp64 -lmkl_core -lmkl_sequential -lpthread -lm -ldl      ../lib/zen2/libblis.a  -lm -lpthread -lrt -o test_trsv_mkl.x
+gcc -O2 -fomit-frame-pointer -Wall -Wno-unused-function -Wfatal-errors -fPIC -std=c99 -D_POSIX_C_SOURCE=200112L -I../include/zen2 -DBLIS_VERSION_STRING=\"0.8.0-9\" -I. -DBLAS=\"mkl\" -c test_gemm.c -o test_gemm_mkl.o
+gcc test_gemm_mkl.o             -L/opt/intel/mkl/lib/intel64 -lmkl_intel_lp64 -lmkl_core -lmkl_sequential -lpthread -lm -ldl      ../lib/zen2/libblis.a  -lm -lpthread -lrt -o test_gemm_mkl.x
+gcc -O2 -fomit-frame-pointer -Wall -Wno-unused-function -Wfatal-errors -fPIC -std=c99 -D_POSIX_C_SOURCE=200112L -I../include/zen2 -DBLIS_VERSION_STRING=\"0.8.0-9\" -I. -DBLAS=\"mkl\" -c test_hemm.c -o test_hemm_mkl.o
+gcc test_hemm_mkl.o             -L/opt/intel/mkl/lib/intel64 -lmkl_intel_lp64 -lmkl_core -lmkl_sequential -lpthread -lm -ldl      ../lib/zen2/libblis.a  -lm -lpthread -lrt -o test_hemm_mkl.x
+gcc -O2 -fomit-frame-pointer -Wall -Wno-unused-function -Wfatal-errors -fPIC -std=c99 -D_POSIX_C_SOURCE=200112L -I../include/zen2 -DBLIS_VERSION_STRING=\"0.8.0-9\" -I. -DBLAS=\"mkl\" -c test_herk.c -o test_herk_mkl.o
+gcc test_herk_mkl.o             -L/opt/intel/mkl/lib/intel64 -lmkl_intel_lp64 -lmkl_core -lmkl_sequential -lpthread -lm -ldl      ../lib/zen2/libblis.a  -lm -lpthread -lrt -o test_herk_mkl.x
+gcc -O2 -fomit-frame-pointer -Wall -Wno-unused-function -Wfatal-errors -fPIC -std=c99 -D_POSIX_C_SOURCE=200112L -I../include/zen2 -DBLIS_VERSION_STRING=\"0.8.0-9\" -I. -DBLAS=\"mkl\" -c test_her2k.c -o test_her2k_mkl.o
+gcc test_her2k_mkl.o             -L/opt/intel/mkl/lib/intel64 -lmkl_intel_lp64 -lmkl_core -lmkl_sequential -lpthread -lm -ldl      ../lib/zen2/libblis.a  -lm -lpthread -lrt -o test_her2k_mkl.x
+gcc -O2 -fomit-frame-pointer -Wall -Wno-unused-function -Wfatal-errors -fPIC -std=c99 -D_POSIX_C_SOURCE=200112L -I../include/zen2 -DBLIS_VERSION_STRING=\"0.8.0-9\" -I. -DBLAS=\"mkl\" -c test_trmm.c -o test_trmm_mkl.o
+gcc test_trmm_mkl.o             -L/opt/intel/mkl/lib/intel64 -lmkl_intel_lp64 -lmkl_core -lmkl_sequential -lpthread -lm -ldl      ../lib/zen2/libblis.a  -lm -lpthread -lrt -o test_trmm_mkl.x
+gcc -O2 -fomit-frame-pointer -Wall -Wno-unused-function -Wfatal-errors -fPIC -std=c99 -D_POSIX_C_SOURCE=200112L -I../include/zen2 -DBLIS_VERSION_STRING=\"0.8.0-9\" -I. -DBLAS=\"mkl\" -c test_trsm.c -o test_trsm_mkl.o
+gcc test_trsm_mkl.o             -L/opt/intel/mkl/lib/intel64 -lmkl_intel_lp64 -lmkl_core -lmkl_sequential -lpthread -lm -ldl      ../lib/zen2/libblis.a  -lm -lpthread -lrt -o test_trsm_mkl.x
+rm test_hemv_mkl.o test_trmv_blis.o test_her2k_openblas.o test_trmv_mkl.o test_hemv_blis.o test_hemv_openblas.o test_trsm_mkl.o test_her2_mkl.o test_her2_openblas.o test_axpyv_mkl.o test_gemv_mkl.o test_gemv_openblas.o test_trmm_mkl.o test_trmm_openblas.o test_dotv_mkl.o test_hemm_mkl.o test_hemm_openblas.o test_trsv_mkl.o test_trsm_blis.o test_trsv_openblas.o test_gemm_mkl.o test_gemv_blis.o test_gemm_openblas.o test_axpyv_openblas.o test_trmm_blis.o test_her2_blis.o test_hemm_blis.o test_trsv_blis.o test_herk_mkl.o test_gemm_blis.o test_herk_blis.o test_trmv_openblas.o test_axpyv_blis.o test_trsm_openblas.o test_herk_openblas.o test_her_mkl.o test_her_openblas.o test_ger_mkl.o test_ger_openblas.o test_her_blis.o test_her2k_mkl.o test_dotv_blis.o test_her2k_blis.o test_dotv_openblas.o test_ger_blis.o
+

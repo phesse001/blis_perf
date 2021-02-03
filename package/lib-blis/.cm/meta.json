@@ -1,0 +1,34 @@
+{
+  "customize": {
+    "extra_dir": "",
+    "install_env": {
+      "PACKAGE_AUTOGEN": "NO",
+      "PACKAGE_GIT": "YES",
+      "PACKAGE_NAME": "blis",
+      "PACKAGE_SKIP_LINUX_MAKE": "YES",
+      "PACKAGE_SUB_DIR": "",
+      "PACKAGE_URL": "https://github.com/flame/blis"
+    },
+    "use_git_revision": "yes",
+    "version": "master"
+  },
+  "only_for_host_os_tags": [
+    "linux"
+  ],
+  "only_for_target_os_tags": [
+    "linux"
+  ],
+  "process_script": "install",
+  "soft_uoa": "2141709854a44468",
+  "suggested_path": "lib-blis-0.8.0",
+  "tags": [
+    "lib",
+    "blis",
+    "linux",
+    "v0.8.0"
+  ],
+  "use_scripts_from_another_entry": {
+    "data_uoa": "cd9ccc74060b3d18",
+    "module_uoa": "script"
+  }
+}

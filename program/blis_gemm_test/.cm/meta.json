@@ -1,0 +1,63 @@
+{
+  "backup_data_uid": "e408cb319c7017ba",
+  "data_name": "blis_gemm_test",
+  "compile_deps": {
+    "compiler": {
+      "local": "yes",
+      "name": "C++ compiler",
+      "sort": 10,
+      "tags": "compiler,lang-cpp"
+    },
+    "lib-blis": {
+       "local": "yes",
+       "name": "Blis library",
+       "sort": 80,
+       "tags": "lib,blis,linux",
+       "skip_linking":"yes"
+    },
+    "xopenme": {
+      "local": "yes",
+      "name": "xOpenME library",
+      "tags": "lib,xopenme"
+    }
+  },
+  "compiler_env": "CK_CC",
+  "compiler_flags_as_env": "-fomit-frame-pointer -Wall -Wno-unused-function -Wfatal-errors -fPIC $<<CK_OPT_SPEED_SAFE>>$",
+  "build_compiler_vars":{
+  "POSIX_C_SOURCE":"200112L", 
+  "BLIS_VERSION_STRING":"0.8.0-9", 
+  "BLIS":"",
+  "XOPENME":""
+  },
+  "extra_ld_vars":"$<<CK_ENV_LIB_BLIS>>$/$<<CK_ENV_LIB_BLIS_STATIC_NAME>>$ $<<CK_EXTRA_LIB_M>>$ $<<CK_COMPILER_FLAG_PTHREAD_LIB>>$",
+  "main_language": "c",
+  "process_in_tmp": "yes",
+  "program": "yes",
+  "print_files_after_run": [
+    "blis_gemm_output.json"
+  ],
+  "run_cmds": {
+    "default": {
+      "ignore_return_code": "no",
+      "run_time": {
+        "fine_grain_timer_file": "tmp-ck-timer.json",
+        "run_cmd_main": "$#BIN_FILE#$ ",
+        "run_cmd_out1": "blis_gemm_output.json",
+        "run_output_files": [
+          "tmp-ck-timer.json"
+        ]
+      }
+    }
+  },
+  "run_vars": {
+  },
+  "source_files": [
+    "test_gemm.c"
+  ],
+  "tags": [
+    "gemm",
+    "blis",
+    "test"
+  ],
+  "target_file": "test_gemm"
+}

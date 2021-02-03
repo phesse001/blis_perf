@@ -1,0 +1,59 @@
+{
+  "backup_data_uid": "31d8eaeab6c49cc9",
+  "data_name": "mkl_gemm_test",
+    "compile_deps": {
+    "compiler": {
+      "local": "yes",
+      "name": "C++ compiler",
+      "sort": 10,
+      "tags": "compiler,lang-cpp"
+    },
+    "lib-mkl": {
+       "local": "yes",
+       "name": "MKL library",
+       "tags": "lib,mkl,core,sequential,lp64",
+       "skip_linking":"no"
+
+    },
+    "lib-blis": {
+       "local": "yes",
+       "name": "Blis library",
+       "tags": "lib,blis,linux",
+       "skip_linking":"yes"
+    }
+  },
+  "compiler_env": "CK_CC",
+  "build_compiler_vars":{"POSIX_C_SOURCE":"200112L", "BLIS_VERSION_STRING":"0.8.0-9", "BLAS":"mkl"},
+  "extra_ld_vars": "$<<CK_EXTRA_LIB_MKL_CORE>>$ $<<CK_EXTRA_LIB_MKL_SEQUENTIAL>>$ $<<CK_ENV_LIB_BLIS>>$/libblis.a $<<CK_EXTRA_LIB_RT>>$ $<<CK_EXTRA_LIB_DL>>$ $<<CK_COMPILER_FLAG_PTHREAD_LIB>>$ $<<CK_EXTRA_LIB_M>>$",
+  "main_language": "c",
+  "process_in_tmp": "yes",
+  "program": "yes",
+  "run_cmds": {
+    "default": {
+      "ignore_return_code": "no",
+      "run_time": {
+        "run_cmd_main": "$#BIN_FILE#$ ",
+        "run_cmd_out1": "tmp-output1.tmp",
+        "run_cmd_out2": "tmp-output2.tmp",
+        "run_correctness_output_files": [
+          "tmp-output2.tmp"
+        ],
+        "run_output_files": [
+          "tmp-ck-timer.json"
+        ]
+      }
+    }
+  },
+  "run_vars": {
+    "BLAS":"mkl"
+  },
+  "source_files": [
+    "test_gemm.c"
+  ],
+  "tags": [
+    "gemm",
+    "mkl",
+    "test"
+  ],
+  "target_file": "test_gemm"
+}
