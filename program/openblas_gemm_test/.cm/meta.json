@@ -18,12 +18,13 @@
        "local": "yes",
        "name": "Blis library",
        "sort": 80,
-       "tags": "lib,blis,linux"
+       "tags": "lib,blis,linux",
+       "skip_linking": "yes"
     }
   },
   "compiler_env": "CK_CC",
   "build_compiler_vars":{"POSIX_C_SOURCE":"200112L", "BLIS_VERSION_STRING":"0.8.0-9", "BLAS":"openblas"},
-  "extra_ld_vars": "$<<CK_EXTRA_LIB_M>>$",
+  "extra_ld_vars": "$<<CK_ENV_LIB_BLIS>>$/$<<CK_ENV_LIB_BLIS_STATIC_NAME>>$ $<<CK_EXTRA_LIB_M>>$ $<<CK_COMPILER_FLAG_PTHREAD_LIB>>$",
   "main_language": "c",
   "process_in_tmp": "yes",
   "program": "yes",

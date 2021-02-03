@@ -39,6 +39,10 @@
 #endif
 #include "blis.h"
 
+#ifdef XOPENME
+#include <xopenme.h>
+#endif
+
 
 //#define PRINT
 
@@ -61,8 +65,6 @@ int main( int argc, char** argv )
 	double dtime;
 	double dtime_save;
 	double gflops;
-
-	char * blas = getenv("BLAS");
 
 	//bli_init();
 
@@ -107,7 +109,23 @@ int main( int argc, char** argv )
 	// Begin with initializing the last entry to zero so that
 	// matlab allocates space for the entire array once up-front.
 
-	//for ( p = p_begin; p <= p_end; p += p_inc )
+	
+	//find number of iterations
+	int i = 0;
+	int xopenme_itr = 0;
+	char name[] = "\"gflops_itr_x\":%f";
+
+	for ( p = p_end; p_begin <= p; p -= p_inc )
+	{
+		i += 1;
+	}
+
+    //for each computation we can record the gflops and execution time
+	#ifdef XOPENME
+      xopenme_init(i,i);
+    #endif
+
+    //for ( p = p_begin; p <= p_end; p += p_inc )
 	for ( p = p_end; p_begin <= p; p -= p_inc )
 	{
 		if ( m_input < 0 ) m = p * ( dim_t )abs(m_input);
@@ -146,6 +164,10 @@ int main( int argc, char** argv )
 
 
 			dtime = bli_clock();
+
+			#ifdef XOPENME
+              xopenme_clock_start(xopenme_itr);
+            #endif
 
 
 #ifdef PRINT
@@ -271,19 +293,28 @@ int main( int argc, char** argv )
 			exit(1);
 #endif
 
-
 			dtime_save = bli_clock_min_diff( dtime_save, dtime );
+			#ifdef XOPENME
+              xopenme_clock_end(xopenme_itr);
+            #endif
+
 		}
 
 		gflops = ( 2.0 * m * k * n ) / ( dtime_save * 1.0e9 );
 
 		if ( bli_is_complex( dt ) ) gflops *= 4.0;
 
+		name[12] = xopenme_itr + '0';
+
+		#ifdef XOPENME
+          xopenme_add_var_d(xopenme_itr, name, gflops);
+        #endif
+
 
 #ifdef BLIS
 		printf( "{\"name\":\"data_gemm_blis\"," );
 #else
-		printf( "{\"name\":\"data_gemm_%s\",", blas);
+		printf( "{\"name\":\"data_gemm_%s\",", BLAS);
 #endif
         if(p_begin == p)
         {
@@ -307,8 +338,15 @@ int main( int argc, char** argv )
 		bli_obj_free( &b );
 		bli_obj_free( &c );
 		bli_obj_free( &c_save );
+
+		xopenme_itr += 1;
 	}
     printf("]}");
+
+    #ifdef XOPENME
+      xopenme_dump_state();
+      xopenme_finish();
+    #endif
 	//bli_finalize();
 
 	return 0;
