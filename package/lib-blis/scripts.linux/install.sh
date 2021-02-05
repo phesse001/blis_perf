@@ -1,16 +1,17 @@
 #! /bin/bash
 
 #
-# Installation script for PAPI
+# Installation script for BLIS
 #
 #
 
 # PACKAGE_DIR
 # INSTALL_DIR
 
-cd ${INSTALL_DIR}/${PACKAGE_SUB_DIR}
+cd ${INSTALL_DIR}/${PACKAGE_NAME}
+pwd
 
-############################################################
+###########################################################
 echo ""
 echo "Configuring package ..."
 

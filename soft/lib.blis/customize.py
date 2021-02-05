@@ -96,11 +96,14 @@ def setup(i):
 
     soft_file = cus['soft_file'][tos_name]
     file_extensions = hosd.get('file_extensions',{}) # not clear whether hosd or tosd should be used in soft detection
+    print(file_extensions)
     #search in lower dirs for lib file
+    print(soft_file)
+    print(full_path)
     path_results = find_files(soft_file,full_path)
+    print(path_results)
     #choose first result? maybe let user choose in the future
-    #full_path = path_results[0]
-    full_path = cus.get('full_path', '')
+    full_path = path_results[0]
     sep = hosd.get('dir_sep', '')
     lib_parent_dir = os.path.dirname(os.path.realpath(full_path))
 
@@ -109,16 +112,11 @@ def setup(i):
 
     if len(d_file_matches) > 0:
       d_file = d_file_matches[0]
-    else:
-      return {'return':1, 'error':'can\'t find dynamic library files in ' + lib_parent_dir}
+      cus['dynamic_lib'] = d_file
 
     if len(s_file_matches) > 0:
       s_file = s_file_matches[0]
-    else:
-      return {'return':1, 'error':'can\'t find static library files in ' + lib_parent_dir}
-
-    cus['static_lib'] = s_file
-    cus['dynamic_lib'] = d_file
+      cus['static_lib'] = s_file
 
     env=i['env']
 
