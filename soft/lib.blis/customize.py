@@ -96,12 +96,8 @@ def setup(i):
 
     soft_file = cus['soft_file'][tos_name]
     file_extensions = hosd.get('file_extensions',{}) # not clear whether hosd or tosd should be used in soft detection
-    print(file_extensions)
     #search in lower dirs for lib file
-    print(soft_file)
-    print(full_path)
     path_results = find_files(soft_file,full_path)
-    print(path_results)
     #choose first result? maybe let user choose in the future
     full_path = path_results[0]
     sep = hosd.get('dir_sep', '')
