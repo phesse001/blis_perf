@@ -4,9 +4,9 @@
   "compile_deps": {
     "compiler": {
       "local": "yes",
-      "name": "C++ compiler",
+      "name": "C compiler",
       "sort": 10,
-      "tags": "compiler,lang-cpp"
+      "tags": "compiler,lang-c"
     },
     "lib-blis": {
        "local": "yes",
@@ -22,7 +22,7 @@
     }
   },
   "compiler_env": "CK_CC",
-  "compiler_flags_as_env": "-fomit-frame-pointer -Wall -Wno-unused-function -Wfatal-errors -fPIC $<<CK_OPT_SPEED_SAFE>>$",
+  "compiler_flags_as_env": "",
   "build_compiler_vars":{
   "POSIX_C_SOURCE":"200112L", 
   "BLIS_VERSION_STRING":"0.8.0-9", 
